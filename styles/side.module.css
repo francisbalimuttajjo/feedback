@@ -1,0 +1,50 @@
+.container {
+  padding: 2rem 2rem;
+  width: 13rem;
+  height: 8rem;
+  /* background-color: red; */
+  /* background-image: linear-gradient( to right,red, yellow); */
+  background-image: linear-gradient(#2d9c62, #ba56a9);
+  border-radius: 5px;
+  color: white;
+}
+.container > h6 {
+  opacity: 0.5;
+  margin-top: -1.5em;
+  text-align: center;
+ 
+}
+
+.div {
+  background-color: white;
+  border-radius: 5px;
+  height: 8rem;
+  margin-top: 1rem;
+  width: 13rem;
+}
+.subContainer {
+  display: flex;
+  justify-content: space-around;
+}
+.heading {
+  font-weight: 800;
+  margin-left: 4px;
+  margin-top: 3px;
+  opacity: 0.6;
+}
+.subContainer a {
+  color: #6696de;
+}
+.subContainer a:hover {
+  color: blue;
+  text-decoration: underline;
+}
+.list {
+  display: flex;
+  flex-direction: row;
+  margin-top: -1em;
+  opacity: 0.6;
+}
+.listItem {
+  list-style: none;
+}
