@@ -1,15 +1,25 @@
 .container {
-  padding: 4rem 14rem;
-  display: flex;
+  /* padding: 4rem 14rem;
+  display: flex; */
   background-color: #f5f0f4;
-  margin: auto;
+  height:100vh;
+  /* margin: auto; */
+}
+/* 
+@media  (max-width: 780px)  {
+  .container {
+    padding: 0px;
+    /* display: flex;
+    background-color: #f5f0f4; */
+    /* margin: 0px;
+  }
 }
 @media  (max-width: 1000px) and (min-width: 600px) {
   .container {
     margin-left:-200px;
     flex-direction: column;
   }
-}
+} */ 
 
 /* .main {
   min-height: 100vh;

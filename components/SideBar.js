@@ -2,7 +2,7 @@ import React from "react";
 import Link from "next/link";
 import { StyledButton } from "./Elements";
 import styles from "../styles/side.module.css";
-
+import MenuIcon from "@mui/icons-material/Menu";
 const categories = ["all", "ui", "feature", "ux", "bug"];
 const planned = ["Planned", "In Progress", "Fixed"];
 const no = [2, 8, 9];
@@ -11,8 +11,13 @@ function SideBar() {
   return (
     <div className={styles.mainContainer}>
       <div className={styles.container}>
-        <h2>Budget App</h2>
-        <h6>Feedback Forum</h6>
+        <div>
+          <h2>Budget App</h2>
+          <h6>Feedback Forum</h6>
+        </div>
+        <div className={styles.menu}>
+          <MenuIcon />
+        </div>
       </div>
       <div className={styles.div}>
         {categories.map((item) => (
