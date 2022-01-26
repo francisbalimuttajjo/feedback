@@ -1,0 +1,26 @@
+.container {
+  margin-left: 2em;
+  color: white;
+}
+.heading {
+  background-color: #443654;
+  width: 32em;
+  border-radius: 7px;
+  height: 3em;
+  display: flex;
+  /* justify-content: space-around; */
+}
+.title {
+  display: flex;
+  justify-content: space-around;
+}
+.suggestion {
+  margin-left: 20px;
+  margin-top: 15px;
+}
+.label {
+  opacity: 0.7;
+  margin-top: 12px;
+  margin-left: 10px;
+  margin-right: 20px;
+}
