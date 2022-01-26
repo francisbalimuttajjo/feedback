@@ -23,7 +23,7 @@ function Suggestion(props) {
       <div className={styles.comment}>
         <CommentIcon sx={{ color: "#6696de", marginTop: "35px" }} />
 
-        <h6 >{props.comment}</h6>
+        <h6 style={{padding:'5px'}}>{props.comment}</h6>
         <IconButton>
           <ChevronRightIcon />
         </IconButton>
