@@ -27,13 +27,27 @@ const feedBack = [
     category: "ux",
     upvotes: 100,
   },
+  {
+    comment: 2,
+    feedback: "displjay",
+    description: "window ereefefefe freezes on start up",
+    category: "ux",
+    upvotes: 100,
+  },
+  {
+    comment: 2,
+    feedback: "disphhlay",
+    description: "window ereefefefe freezes on start up",
+    category: "ux",
+    upvotes: 100,
+  },
 ];
 function MainBar() {
   return (
     <div className={styles.container}>
       <div className={styles.heading}>
         <div className={styles.title}>
-          <AccountBalanceIcon sx={{ marginTop: "12px", marginLeft: "10px" }} />
+          <AccountBalanceIcon sx={{ marginTop: "15px", marginLeft: "10px" }} />
           <h5 className={styles.suggestion}>{feedBack.length} Suggestions</h5>
         </div>
         <div>

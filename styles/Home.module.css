@@ -1,9 +1,17 @@
 .container {
-  /* padding: 4rem 14rem;
-  display: flex; */
   background-color: #f5f0f4;
-  height:100vh;
-  /* margin: auto; */
+}
+@media  (max-width: 1000px) and (min-width: 650px) {
+  .container{
+    width:90%;
+    margin:auto;
+  }
+}
+@media  (min-width: 1000px)  {
+ .container{
+   display: flex;
+  
+ }
 }
 /* 
 @media  (max-width: 780px)  {
@@ -11,7 +19,7 @@
     padding: 0px;
     /* display: flex;
     background-color: #f5f0f4; */
-    /* margin: 0px;
+/* margin: 0px;
   }
 }
 @media  (max-width: 1000px) and (min-width: 600px) {
@@ -19,7 +27,7 @@
     margin-left:-200px;
     flex-direction: column;
   }
-} */ 
+} */
 
 /* .main {
   min-height: 100vh;

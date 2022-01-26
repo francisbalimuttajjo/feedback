@@ -3,6 +3,7 @@ import Link from "next/link";
 import { StyledButton } from "./Elements";
 import styles from "../styles/side.module.css";
 import MenuIcon from "@mui/icons-material/Menu";
+//test data
 const categories = ["all", "ui", "feature", "ux", "bug"];
 const planned = ["Planned", "In Progress", "Fixed"];
 const no = [2, 8, 9];

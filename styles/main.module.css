@@ -16,11 +16,44 @@
 }
 .suggestion {
   margin-left: 20px;
-  /* margin-top: 15px; */
+   margin-top: -25px; 
+   margin-left: 50px;
 }
 .label {
   opacity: 0.7;
   margin-top: 12px;
   margin-left: 10px;
   margin-right: 20px;
+}
+
+@media (max-width: 1000px) and (min-width: 650px) {
+    .title {
+        display:block;
+       }
+       .heading {
+        height: 4em;;
+        margin: auto;
+        width: 90%;
+        border-radius: 7px;
+     
+      }
+}
+
+
+@media  (min-width: 1000px)  {
+    .container{
+        width:60%;
+        margin-left: 2em;
+    }
+    .title {
+        display:block;
+       }
+    .heading {
+        height: 3em;;
+        margin: auto;
+        margin-top:2em;
+        width: 90%;
+        border-radius: 7px;
+     
+      }
 }

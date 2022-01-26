@@ -16,16 +16,14 @@ function Suggestion(props) {
       </div>
       <div className={styles.divFeedback}>
         <h5 className={styles.feedBackTitle}>{props.feedback}</h5>
-        <h6 style={{ margin: "-20px", opacity: 0.4 }}>
-         {props.description}
-        </h6>
+        <h6 style={{ margin: "-20px", opacity: 0.4 }}>{props.description}</h6>
 
         <h5 className={styles.category}>{props.category}</h5>
       </div>
       <div className={styles.comment}>
-        <CommentIcon sx={{ color: "#6696de", marginTop: "30px" }} />
+        <CommentIcon sx={{ color: "#6696de", marginTop: "35px" }} />
 
-        <h6>{props.comment}</h6>
+        <h6 >{props.comment}</h6>
         <IconButton>
           <ChevronRightIcon />
         </IconButton>
