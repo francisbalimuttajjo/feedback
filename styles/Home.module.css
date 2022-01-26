@@ -1,8 +1,14 @@
 .container {
   padding: 4rem 14rem;
-  display:flex;
+  display: flex;
   background-color: #f5f0f4;
   margin: auto;
+}
+@media  (max-width: 1000px) and (min-width: 600px) {
+  .container {
+    margin-left:-200px;
+    flex-direction: column;
+  }
 }
 
 /* .main {

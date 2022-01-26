@@ -1,3 +1,4 @@
+
 .container {
   margin-left: 2em;
   color: white;
@@ -24,3 +25,12 @@
   margin-left: 10px;
   margin-right: 20px;
 }
+@media (max-width: 1000px) and (min-width: 780px) {
+    .container {
+      margin-left: 4em;
+      width: 100%;
+    }
+    .heading {
+      width: 100%;
+    }
+  }

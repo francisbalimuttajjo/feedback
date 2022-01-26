@@ -9,7 +9,7 @@ const no = [2, 8, 9];
 
 function SideBar() {
   return (
-    <div>
+    <div className={styles.mainContainer}>
       <div className={styles.container}>
         <h2>Budget App</h2>
         <h6>Feedback Forum</h6>

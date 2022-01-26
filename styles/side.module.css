@@ -12,7 +12,6 @@
   opacity: 0.5;
   margin-top: -1.5em;
   text-align: center;
- 
 }
 
 .div {
@@ -47,4 +46,27 @@
 }
 .listItem {
   list-style: none;
+}
+
+@media (max-width: 1000px) and (min-width: 780px) {
+  .mainContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 100%;
+    margin-left: 4em;
+    margin-bottom: 1em;
+  }
+  .container {
+    margin-top: 1rem;
+  }
+  .container > h2 {
+    font-size: 17px;
+    margin-left: 25px;
+  }
+}
+@media (max-width: 800px) and (min-width: 780px) {
+  .container > h2 {
+    margin-left: 5px;
+  }
 }
