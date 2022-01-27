@@ -76,6 +76,7 @@ function Comments() {
         <Reply
           key={reply.username}
           src={reply.src}
+          name={reply.name}
           alt={reply.alt}
           username={reply.username}
           reply={reply.reply}

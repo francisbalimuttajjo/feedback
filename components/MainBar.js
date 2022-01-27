@@ -5,8 +5,9 @@ import Suggestion from "./Suggestion";
 import AccountBalanceIcon from "@mui/icons-material/AccountBalance";
 import styles from "../styles/main.module.css";
 import { data, categories } from "../data";
-
+import Modal from "./Modal";
 function MainBar() {
+  const[view,setView]=React.useState(false)
   const router = useRouter();
   return (
     <div className={styles.container}>
@@ -32,7 +33,8 @@ function MainBar() {
           <Button
             variant="contained"
             size="small"
-            onClick={() => router.push("/suggestion/add")}
+            // onClick={() => router.push("/suggestion/add")}
+            onClick={() => setView(true)}
             sx={{
               height: "2em",
               textTransform: "lowercase",
@@ -57,6 +59,8 @@ function MainBar() {
           upvotes={item.upvotes}
         />
       ))}
+      {view && <Modal  handleOpen={setView} open={view}/> }
+      
     </div>
   );
 }
