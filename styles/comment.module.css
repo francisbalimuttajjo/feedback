@@ -1,0 +1,9 @@
+.user{
+    display:flex;
+}
+.user > a{
+    color:blue;
+    font-size: 14px;
+    flex:2;
+   
+}

@@ -82,6 +82,7 @@ function MainBar() {
       </div>
       {feedBack.map((item) => (
         <Suggestion
+          homepage
           key={item.feedback}
           category={item.category}
           description={item.description}
