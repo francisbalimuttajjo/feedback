@@ -3,6 +3,7 @@ import { useRouter } from "next/router";
 import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
 import { IconButton, Button } from "@mui/material";
 import Suggestion from "./Suggestion";
+import AddComment from "./AddComment";
 import Comment from "./Comments";
 import styles from "../styles/feedback.module.css";
 
@@ -43,6 +44,7 @@ function Feedback() {
         category="ux"
       />
       <Comment />
+      <AddComment />
     </div>
   );
 }
