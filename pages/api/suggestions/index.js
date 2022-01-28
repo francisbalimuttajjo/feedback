@@ -1,5 +1,5 @@
-import connect from "../../db/db";
-import Suggestion from "../../models/Suggestion";
+import connect from "../../../db/db";
+import Suggestion from "../../../models/Suggestion";
 
 export default async function handler(req, res) {
   connect();
