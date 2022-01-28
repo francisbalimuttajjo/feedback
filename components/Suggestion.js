@@ -23,14 +23,16 @@ function Suggestion(props) {
         <h5 className={styles.category}>{props.category}</h5>
       </div>
       <div className={styles.comment}>
-        <CommentIcon sx={{ color: "#6696de", marginTop: "35px" }} />
-
-        <h6 style={{ padding: "5px" }}>{props.comment}</h6>
         {props.homepage && (
           <IconButton onClick={() => router.push(`/${props.id}`)}>
             <ChevronRightIcon />
           </IconButton>
         )}
+        <div style={{display:'flex'}}>
+          <CommentIcon sx={{ color: "#6696de",marginTop:'20px' }} />
+
+          <h6 style={{ padding: "5px" }}>{props.comment}</h6>
+        </div>
       </div>
     </div>
   );
