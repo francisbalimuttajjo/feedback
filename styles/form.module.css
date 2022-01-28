@@ -1,0 +1,28 @@
+.container {
+  height: 90vh;
+  background-color: #f5f0f4;
+}
+.header {
+  background-color: white;
+  width: 90%;
+  margin: auto;
+  margin-top: -20px;
+  border-radius: 7px;
+  padding: 2px;
+}
+.formDiv {
+  background-color: white;
+  width: 90%;
+  margin: auto;
+  margin-top: 1em;
+  border-radius: 7px;
+  padding: 2px;
+}
+.textarea {
+  width: 90%;
+  margin-left: 5%;
+  height: 5em;
+  margin-top: 3em;
+  margin-bottom: 1.5em;
+  resize: none;
+}

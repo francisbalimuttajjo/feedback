@@ -2,13 +2,20 @@ import React from "react";
 import { Button } from "@mui/material";
 import { useRouter } from "next/router";
 import Suggestion from "./Suggestion";
+import Form from "./Form";
 import AccountBalanceIcon from "@mui/icons-material/AccountBalance";
 import styles from "../styles/main.module.css";
 import { data, categories } from "../data";
 import Modal from "./Modal";
+
+//
 function MainBar() {
-  const[view,setView]=React.useState(false)
+  const [view, setView] = React.useState(false);
+  const open = () => setView(true);
+  const close = () => setView(false);
   const router = useRouter();
+
+  //
   return (
     <div className={styles.container}>
       <div className={styles.heading}>
@@ -33,7 +40,6 @@ function MainBar() {
           <Button
             variant="contained"
             size="small"
-            // onClick={() => router.push("/suggestion/add")}
             onClick={() => setView(true)}
             sx={{
               height: "2em",
@@ -59,8 +65,13 @@ function MainBar() {
           upvotes={item.upvotes}
         />
       ))}
-      {view && <Modal  handleOpen={setView} open={view}/> }
-      
+      {view && (
+        <Modal handleOpen={open} open={view} 
+        // handleClose={close}
+        >
+          <Form  handleBack={close}/>
+        </Modal>
+      )}
     </div>
   );
 }
