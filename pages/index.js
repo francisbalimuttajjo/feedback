@@ -18,7 +18,8 @@ export default function Home(props) {
 }
 
 export async function getServerSideProps(context) {
-  const res = await axios.get("http://localhost:3000/api/getSuggestions");
+  // const res = await axios.get("http://localhost:3000/api/getSuggestions");
+  const res = await axios.get("https://feedback-cqlrq846n-fbalimuttajjo.vercel.app/api/getSuggestions");
 
   return {
     props: { data: res.data },
