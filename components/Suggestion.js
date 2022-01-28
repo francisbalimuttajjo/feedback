@@ -28,10 +28,15 @@ function Suggestion(props) {
             <ChevronRightIcon />
           </IconButton>
         )}
-        <div style={{display:'flex'}}>
-          <CommentIcon sx={{ color: "#6696de",marginTop:'20px' }} />
+        <div style={{ display: "flex" }}>
+          <CommentIcon
+            sx={{
+              color: "#6696de",
+              marginTop: props.homepage ? "20px" : "60px",
+            }}
+          />
 
-          <h6 style={{ padding: "5px" }}>{props.comment}</h6>
+          <h6 style={{ marginTop: props.homepage ? "30px" : "70px" }}>{props.comment}</h6>
         </div>
       </div>
     </div>

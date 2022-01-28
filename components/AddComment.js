@@ -26,13 +26,14 @@ function AddComment() {
           size="small"
           sx={{
             height: "2em",
+            
             backgroundColor: "purple",
-            padding: "5px",
+             padding: "5px",
             textTransform: "capitalize",
             marginTop: "1em",
           }}
         >
-          Post Comment
+         Comment
         </Button>
       </div>
     </div>
