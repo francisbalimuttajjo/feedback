@@ -1,5 +1,7 @@
 .container {
   background-color: #f5f0f4;
+  min-height:100vh;
+
 }
 @media  (max-width: 1000px) and (min-width: 650px) {
   .container{

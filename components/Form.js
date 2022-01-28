@@ -1,8 +1,10 @@
 import React from "react";
+import axios from "axios";
 import NavigateBeforeIcon from "@mui/icons-material/NavigateBefore";
 import {
   IconButton,
   Select,
+  CircularProgress,
   MenuItem,
   Button,
   Typography,
@@ -22,15 +24,35 @@ function Form(props) {
   const [category, setCategory] = React.useState("");
   const [title, setTitle] = React.useState("");
   const [text, setText] = React.useState("");
+  const [loading, setLoading] = React.useState(false);
   const selectRef = React.useRef().currentValue;
 
-  const submitHandler = (e) => {
+  const submitHandler = async (e) => {
     e.preventDefault();
+
     if (!title || !category || !text) {
       alert("please fill all fields");
       return;
     }
-    console.log(title, category, text);
+    try {
+      setLoading(true);
+
+      const res = await axios.post("/api/feedback", {
+        title,
+        category,
+        suggestion: text,
+      });
+
+      if (res.data.status === "success") {
+        setLoading(false);
+        setTitle("");
+        setText("");
+        setTimeout(() => window.location.reload(), 3000);
+      }
+    } catch (err) {
+      setLoading(false);
+      console.log(err);
+    }
   };
 
   return (
@@ -87,7 +109,8 @@ function Form(props) {
             onChange={(e) => setText(e.target.value)}
           ></textarea>
           <Button fullWidth variant="contained" type="submit">
-            Add Feedback
+            {!loading && <Typography>Add Feedback</Typography>}
+            {loading && <CircularProgress color="inherit" />}
           </Button>
         </form>
       </div>

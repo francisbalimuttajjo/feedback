@@ -1,7 +1,6 @@
 import React from "react";
 import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
 import { IconButton } from "@mui/material";
-import Link from "next/link";
 import { useRouter } from "next/router";
 import CommentIcon from "@mui/icons-material/Comment";
 import styles from "../styles/suggestion.module.css";
@@ -28,7 +27,7 @@ function Suggestion(props) {
 
         <h6 style={{ padding: "5px" }}>{props.comment}</h6>
         {props.homepage && (
-          <IconButton onClick={() => router.push("/id")}>
+          <IconButton onClick={() => router.push(`/${props.id}`)}>
             <ChevronRightIcon />
           </IconButton>
         )}

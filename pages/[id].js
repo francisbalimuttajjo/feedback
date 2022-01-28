@@ -1,15 +1,35 @@
 import React from "react";
-import {useRouter} from 'next/router'
-import Feedback from '../components/Feedback'
+import Feedback from "../components/Feedback";
+import axios from "axios";
 
-function feedback() {
-  const router = useRouter()
-  console.log((router.query.id))
+function feedback(props) {
+  const suggestion = props.data;
+
+
   return (
     <>
-      <Feedback />
+      <Feedback
+        upvotes={suggestion.upvotes}
+        description={suggestion.suggestion}
+        category={suggestion.category}
+        comment={suggestion.comments}
+        feedback={suggestion.title}
+      />
     </>
   );
 }
 
+
 export default feedback;
+
+export async function getServerSideProps(req) {
+ 
+  const res = await axios.get(
+    `http://localhost:3000/api/suggestions/${req.query.id}`
+  );
+
+
+  return {
+    props: { data: res.data.data },
+  };
+}

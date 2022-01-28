@@ -7,7 +7,7 @@ import AddComment from "./AddComment";
 import Comment from "./Comments";
 import styles from "../styles/feedback.module.css";
 
-function Feedback() {
+function Feedback(props) {
   const router = useRouter();
   return (
     <div className={styles.container}>
@@ -37,11 +37,11 @@ function Feedback() {
         </div>
       </div>
       <Suggestion
-        upvotes={7}
-        comment={2}
-        feedback="disphhlay"
-        description="window ereefefefe freezes on start up"
-        category="ux"
+        upvotes={props.upvotes}
+        comment={props.comment}
+        feedback={props.feedback}
+        description={props.description}
+        category={props.category}
       />
       <Comment />
       <AddComment />

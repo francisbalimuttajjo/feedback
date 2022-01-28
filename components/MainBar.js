@@ -5,11 +5,14 @@ import Suggestion from "./Suggestion";
 import Form from "./Form";
 import AccountBalanceIcon from "@mui/icons-material/AccountBalance";
 import styles from "../styles/main.module.css";
-import { data, categories } from "../data";
+import {  categories } from "../data";
 import Modal from "./Modal";
 
+
+
+
 //
-function MainBar() {
+function MainBar(props) {
   const [view, setView] = React.useState(false);
   const open = () => setView(true);
   const close = () => setView(false);
@@ -21,7 +24,7 @@ function MainBar() {
       <div className={styles.heading}>
         <div className={styles.title}>
           <AccountBalanceIcon sx={{ marginTop: "15px", marginLeft: "10px" }} />
-          <h5 className={styles.suggestion}>{data.length} Suggestions</h5>
+          <h5 className={styles.suggestion}>{props.data.length} Suggestions</h5>
         </div>
         <div>
           <div className={styles.label}>
@@ -54,20 +57,21 @@ function MainBar() {
           </Button>
         </div>
       </div>
-      {data.map((item) => (
+      {props.data.map((item) => (
         <Suggestion
           homepage
-          key={item.feedback}
+          key={item._id}
           category={item.category}
-          description={item.description}
-          comment={item.comment}
-          feedback={item.feedback}
+          description={item.suggestion}
+          comment={item.comments}
+          feedback={item.title}
           upvotes={item.upvotes}
+          id={item._id}
         />
       ))}
       {view && (
         <Modal handleOpen={open} open={view} 
-        // handleClose={close}
+        
         >
           <Form  handleBack={close}/>
         </Modal>
