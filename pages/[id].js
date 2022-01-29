@@ -4,7 +4,7 @@ import axios from "axios";
 
 function feedback(props) {
   const suggestion = props.data;
-  // console.log(suggestion);
+  
 
   return (
     <>
@@ -12,8 +12,9 @@ function feedback(props) {
         upvotes={suggestion.upvotes}
         description={suggestion.suggestion}
         category={suggestion.category}
-        comment={suggestion.comments}
+        comments={suggestion.comment}
         feedback={suggestion.title}
+        length={suggestion.comment.length}
       />
     </>
   );
@@ -23,7 +24,7 @@ export default feedback;
 
 export async function getServerSideProps(req) {
   const res = await axios.get(
-    //`http://localhost:3000/api/suggestions/${req.query.id}`
+  //  `http://localhost:3000/api/suggestions/${req.query.id}`
     `https://feedbackbafra.vercel.app/api/suggestions/${req.query.id}`
   );
 

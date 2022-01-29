@@ -42,8 +42,9 @@ function Feedback(props) {
         feedback={props.feedback}
         description={props.description}
         category={props.category}
+        length={props.length}
       />
-      <Comment />
+      <Comment comments={props.comments}  />
       <AddComment />
     </div>
   );

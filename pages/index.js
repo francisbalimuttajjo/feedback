@@ -8,6 +8,8 @@ import axios from "axios";
 export default function Home(props) {
 
   const data = props.data.data;
+ 
+
   return (
     <div className={styles.container}>
       <Head title="home" />
@@ -18,10 +20,9 @@ export default function Home(props) {
 }
 
 export async function getServerSideProps(context) {
-  // const res = await axios.get("http://localhost:3000/api/getSuggestions");
+  //const res = await axios.get("http://localhost:3000/api/getSuggestions");
   const res = await axios.get("https://feedbackbafra.vercel.app/api/getSuggestions");
- 
-
+   
   return {
     props: { data: res.data },
   };

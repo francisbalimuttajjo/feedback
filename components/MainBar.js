@@ -58,15 +58,17 @@ function MainBar(props) {
         </div>
       </div>
       {props.data.map((item) => (
+      
         <Suggestion
           homepage
           key={item._id}
           category={item.category}
           description={item.suggestion}
-          comment={item.comments}
+         
           feedback={item.title}
           upvotes={item.upvotes}
           id={item._id}
+          length={item.comment.length}
         />
       ))}
       {view && (
