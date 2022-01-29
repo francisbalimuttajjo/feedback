@@ -6,7 +6,7 @@ import axios from "axios";
 
 
 export default function Home(props) {
-  console.log();
+  
   const data = props.data.data;
   return (
     <div className={styles.container}>

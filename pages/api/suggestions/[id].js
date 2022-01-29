@@ -1,11 +1,15 @@
 import connect from "../../../db/db";
 import Suggestion from "../../../models/Suggestion";
+import Comment from "../../../models/Comment";
 
 export default async function handler(req, res) {
   connect();
   if (req.method === "GET") {
     try {
-      const data = await Suggestion.findOne({ _id: req.query.id });
+      const data = await Suggestion.findOne({ _id: req.query.id }).populate({
+        path: "comment",
+        model: Comment,
+      });
       if (!data) {
         return res.status(400).json({
           status: "fail",

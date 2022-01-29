@@ -10,7 +10,7 @@ const style = {
   width: 400,
   bgcolor: "background.paper",
   boxShadow: 24,
-//   p: 4,
+  p: 4,
 };
 
 export default function KeepMountedModal(props) {
@@ -21,7 +21,7 @@ export default function KeepMountedModal(props) {
       <Modal
         keepMounted
         open={props.open}
-        // onClose={props.handleClose}
+        onClose={props.handleClose}
         aria-labelledby="keep-mounted-modal-title"
         aria-describedby="keep-mounted-modal-description"
       >
