@@ -18,12 +18,7 @@ const suggestionModel = new mongoose.Schema(
     upvotes: {
       type: Number,
     },
-    // comments: {
-    //   type: Number,
-    // },
-    // commentsArray:{
-    //   type:[Array]
-    // }
+   
   },
   {
     toJSON: { virtuals: true },
