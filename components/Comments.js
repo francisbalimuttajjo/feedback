@@ -3,7 +3,26 @@ import { Avatar, Divider } from "@mui/material";
 import Link from "next/link";
 import styles from "../styles/comment.module.css";
 
-const Comment = (props) => {
+const replies = [
+  {
+    src: "https://material-ui.com/static/images/avatar/1.jpg",
+    alt: "Remy Sharp",
+    name: "Francis Balimuttajjo",
+    username: "@bafraUgdd",
+    reply:
+      "industry. sssss Ipsum has been the industrys standard dummy text  ever since the 1500s, when an unknown printer took a galley of type  and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic",
+  },
+  {
+    src: "https://material-ui.com/static/images/avatar/1.jpg",
+    alt: "Remy Sharp",
+    name: "Francis Balimuttajjo",
+    username: "@bafraUg",
+    reply:
+      "industry. Lorem Ipsum has been the industrys standard dummy text  ever since the 1500s, when an unknown printer took a galley of type  and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic",
+  },
+];
+
+const Reply = (props) => {
   return (
     <div style={{ display: "flex" }}>
       <div style={{ flex: 1, margin: "5px" }}>
@@ -20,12 +39,14 @@ const Comment = (props) => {
             }}
           >
             <h6>{props.name}</h6>
-            <h6 style={{ marginTop: "-2.5em", opacity: 0.4 }}>{props.user}</h6>
+            <h6 style={{ marginTop: "-2.5em", opacity: 0.4 }}>
+              {props.username}
+            </h6>
           </div>
           <Link href="/replies">Reply</Link>
         </div>
         <div style={{ marginTop: "-2.0em", marginBottom: "5px" }}>
-          <h6 style={{ opacity: 0.5 }}>{props.comment}</h6>
+          <h6 style={{ opacity: 0.5 }}>{props.reply}</h6>
           <Divider sx={{ marginRight: "15px" }} />
         </div>
       </div>
@@ -33,7 +54,7 @@ const Comment = (props) => {
   );
 };
 
-function Comments(props) {
+function Comments() {
   return (
     <div
       style={{
@@ -48,18 +69,17 @@ function Comments(props) {
     >
       <div>
         <h5 style={{ margin: "10px" }}>
-          {props.comments.length}{" "}
-          {props.comments.length <= 1 ? "comment" : "comments"}
+          {replies.length} {replies.length <= 1 ? "comment" : "comments"}
         </h5>
       </div>
-      {props.comments.map((comment) => (
-        <Comment
-          key={comment.user}
-          src={comment.src}
-          name={comment.name}
-          alt={comment.alt}
-          user={comment.user}
-          comment={comment.comment}
+      {replies.map((reply) => (
+        <Reply
+          key={reply.username}
+          src={reply.src}
+          name={reply.name}
+          alt={reply.alt}
+          username={reply.username}
+          reply={reply.reply}
         />
       ))}
     </div>

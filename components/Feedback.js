@@ -7,7 +7,6 @@ import AddComment from "./AddComment";
 import Comment from "./Comments";
 import styles from "../styles/feedback.module.css";
 
-
 function Feedback(props) {
   const router = useRouter();
   return (
@@ -44,7 +43,7 @@ function Feedback(props) {
         description={props.description}
         category={props.category}
       />
-      <Comment  comments={props.comments} />
+      <Comment />
       <AddComment />
     </div>
   );

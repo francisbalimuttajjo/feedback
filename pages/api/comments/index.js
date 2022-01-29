@@ -1,5 +1,5 @@
-import connect from "../../db/db";
-import Comment from "../../models/Comment";
+import connect from "../../../db/db";
+import Comment from "../../../models/Comment";
 
 export default async function handler(req, res) {
   connect();

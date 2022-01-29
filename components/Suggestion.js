@@ -36,7 +36,7 @@ function Suggestion(props) {
             }}
           />
 
-          <h6 style={{ marginTop: props.homepage ? "30px" : "70px" }}>{props.comment}</h6>
+          <h6 style={{ marginTop: props.homepage ? "30px" : "70px" }}>8</h6>
         </div>
       </div>
     </div>
