@@ -9,15 +9,26 @@ import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 function Suggestion(props) {
   const router = useRouter();
   return (
-    <div className={styles.container}>
+    
+    
+  
+  
+  
+ 
+  
+   
+    <div className='bg-white mx-3 rounded-lg text-black mt-4 py-5 flex   '   
+    >
       <div style={{ flex: 1 }}>
-        <div className={styles.likes}>
+        <div className="flex bg-gray-200  flex-col m-2  opacity-500 rounded-md p-2 justify-center">
           <KeyboardArrowUpIcon sx={{ marginLeft: "-7px" }} />
-          <h6 className={styles.upvotes}>{props.upvotes}</h6>
+          <h6 className='self-start'>{props.upvotes}</h6>
         </div>
       </div>
-      <div className={styles.divFeedback}>
-        <h5 className={styles.feedBackTitle}>{props.feedback}</h5>
+      <div className="flex  w-3/4  ml-4 flex-col">
+     
+ 
+        <h5 className='mt-15 font-semibold opacity-70 capitalize'>{props.feedback}</h5>
         <h6 style={{ margin: "-20px", opacity: 0.4 }}>{props.description}</h6>
 
         <h5 className={styles.category}>{props.category}</h5>
