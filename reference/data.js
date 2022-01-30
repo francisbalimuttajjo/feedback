@@ -44,6 +44,6 @@
 //   },
 // ];
 // const categories = data.map(item=>item.category)
-const categories=['feature','all','ui','ux','bug',]
+const categories=['all','ui','ux','bug','feature']
 
 export { categories}
