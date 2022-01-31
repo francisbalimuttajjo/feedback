@@ -1,25 +1,35 @@
 import React from "react";
-import { Button } from "@mui/material";
+import MenuItem from "@mui/material/MenuItem";
+import { FormControl, Select } from "@mui/material";
 import { useRouter } from "next/router";
 import Suggestion from "./Suggestion";
 import Form from "./Form";
 import AccountBalanceIcon from "@mui/icons-material/AccountBalance";
-import styles from "../styles/main.module.css";
-import { categories } from "../data";
 import Modal from "./Modal";
-
+const categories = [
+  "Most Upvotes",
+  "Least Upvotes",
+  "Most Comments",
+  "Least comments",
+];
 //
 function MainBar(props) {
   const [view, setView] = React.useState(false);
   const open = () => setView(true);
   const close = () => setView(false);
   const router = useRouter();
+  const [value, setValue] = React.useState(categories[0]);
+
+  const handleChange = (event) => {
+    setValue(event.target.value);
+  };
 
   //
   return (
     <div className="w-full text-white  ">
       <div
-        className="bg-purple-900 flex justify-around w-full h-12 sm:h-20 sm:rounded-md sm:w-11/12 sm:ml-16
+        className="bg-purple-900 sticky top-0
+          flex justify-around w-full h-12 sm:h-20 sm:rounded-md sm:w-11/12 sm:ml-16
        md:mt-12 
       "
       >
@@ -30,16 +40,38 @@ function MainBar(props) {
           </h5>
         </div>
         <div>
-          <div className="opacity-70 mt-3 ml-2.5 mr-5 sm:mt-6">
-            <label htmlFor="selectBy">Select By: &nbsp;</label>
-            <select name="categories" className="text-black">
-              <option value="">choose Option</option>
+        
+          <div className="opacity-80 mt-4   ml-2.5 mr-5 sm:mt-10">
+            <label htmlFor="selectBy">Sort by: &nbsp;</label>
+            <FormControl
+              variant="standard"
+              sx={{ minWidth: 120, textDecoration: "none",marginTop:-0.2 }}
+            >
+              <Select
+                labelId="demo-simple-select-standard-label"
+                id="demo-simple-select-standard"
+                value={value}
+                onChange={handleChange}
+                sx={{ color: "white" }}
+              >
+               
+                {categories.map((optionValue) => (
+                  <MenuItem value={optionValue} key={optionValue}>
+                    {" "}
+                    {optionValue}
+                  </MenuItem>
+                ))}
+              </Select>
+            </FormControl>
+
+            {/* <select name="categories" className=" cursor-pointer bg-purple-900 font-semibold text-white-900 w-35">
+              
               {categories.map((optionValue) => (
-                <option value={optionValue} key={optionValue}>
+                <option className='bg-white w-16 my-4   text-black' value={optionValue} key={optionValue}>
                   {optionValue}
                 </option>
               ))}
-            </select>
+            </select> */}
           </div>
         </div>
 

@@ -1,6 +1,6 @@
 import React from "react";
 import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
-import { IconButton } from "@mui/material";
+import { IconButton, Avatar } from "@mui/material";
 import { useRouter } from "next/router";
 import Image from "next/image";
 import CommentIcon from "@mui/icons-material/Comment";
@@ -9,7 +9,7 @@ import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 function Suggestion(props) {
   const router = useRouter();
   return (
-    <div className="bg-white  mx-3 md:ml-20    rounded-lg text-black mt-4 py-5 sm:pl-6 sm:py-3   sm:ml-16    ">
+    <div className="bg-white  mx-3 md:ml-20    rounded-lg text-black mt-4 py-3 sm:pl-6 sm:py-3   sm:ml-16    ">
       <div className="min-w-full sm:min-w-10/12">
         <div className="flex flex-row  px-3">
           <div
@@ -19,9 +19,13 @@ function Suggestion(props) {
             <KeyboardArrowUpIcon />
             <p className="self-start  ml-2  -mt-2">{props.upvotes}</p>
           </div>
-          <header className="mt-15  sm:mt-4 grow  font-semibold sm:font-bold opacity-90 capitalize">
-            {props.feedback}
-          </header>
+          <div className='grow flex '>
+            <Avatar />
+            <div className='ml-6'>
+              <h4 className="font-semibold">Francis Mayanja</h4>
+              <p className="-mt-2 opacity-50">@bafra</p>
+            </div>
+          </div>
 
           {props.homepage && (
             <IconButton onClick={() => router.push(`/${props.id}`)}>
@@ -29,7 +33,15 @@ function Suggestion(props) {
             </IconButton>
           )}
         </div>
-        <p className="px-2 sm:ml-12 sm:-mt-5  opacity-50">{props.description}</p>
+        <div>
+          <header className="mt-15 ml-2  sm:mt-4 grow  font-semibold sm:font-bold opacity-90 capitalize">
+            {props.feedback}
+          </header>
+          <p className="px-2 sm:ml-12 sm:-mt-5  opacity-50">
+            {props.description}
+          </p>
+        </div>
+
         <div className="flex mt-2 ">
           <div className="flex grow ">
             <div className="flex bg-gray-200 h-10 w-12 sm:hidden   flex-col m-2  opacity-500 rounded-md p-2 justify-center">

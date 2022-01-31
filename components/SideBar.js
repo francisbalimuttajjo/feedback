@@ -1,6 +1,7 @@
 import React from "react";
 import { StyledButton } from "./Elements";
 import { IconButton } from "@mui/material";
+import Link from "next/link";
 import MenuIcon from "@mui/icons-material/Menu";
 import { categories } from "../data";
 //
@@ -37,9 +38,10 @@ function SideBar() {
       <div className="hidden sm:block md:block rounded-lg  bg-white  ml-6 w-3/12  h-32 md:py-4 md:h-36  md:w-full md:ml-0 md:mt-3">
         <div className="flex justify-around mb-4">
           <h5 className="opacity-60 text-blue-900 ml-1">Road Map</h5>
-          <a href="/view" className="text-blue-500 hover:text-blue-900 ">
-            view all
-          </a>
+          <div className="text-blue-500 hover:text-blue-900 ">
+            <Link href="/view" > view all</Link>
+          </div>
+          
         </div>
 
         <div className="flex flex-row opacity-60">

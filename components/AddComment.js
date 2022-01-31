@@ -1,6 +1,6 @@
 import { Button } from "@mui/material";
 import React from "react";
-import styles from "../styles/addComment.module.css";
+
 
 function AddComment() {
   const [text, setText] = React.useState("");
