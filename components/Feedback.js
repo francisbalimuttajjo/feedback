@@ -10,8 +10,8 @@ import Comment from "./Comments";
 function Feedback(props) {
   const router = useRouter();
   return (
-    <div>
-      <div className="flex  opacity-50 ">
+    <div className='sm:w-9/12 sm:mx-auto md:w-2/4 mt-4'>
+      <div className="flex  opacity-80 font-bold ">
         <div className="flex mt-2  ">
           <IconButton onClick={() => router.back()}>
             <ArrowBackIosNewIcon fontSize="small" sx={{ fontSize: "14px" }} />
@@ -19,7 +19,7 @@ function Feedback(props) {
 
           <h6 className="mt-1  ">Go back</h6>
         </div>
-        <div className="right-3 absolute">
+        <div className="right-3 absolute  sm:mr-20 md:mr-64">
           <button
             onClick={() => setView(true)}
             className=" bg-purple-900 text-white

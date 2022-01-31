@@ -9,7 +9,8 @@ import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 function Suggestion(props) {
   const router = useRouter();
   return (
-    <div className="bg-white  mx-3 md:ml-20    rounded-lg text-black mt-4 py-3 sm:pl-6 sm:py-3   sm:ml-16    ">
+    <div className="bg-white  mx-3 md:ml-20    
+    rounded-lg text-black mt-4 py-3 sm:pl-6 sm:py-3   sm:ml-16    ">
       <div className="min-w-full sm:min-w-10/12">
         <div className="flex flex-row  px-3">
           <div
@@ -19,11 +20,11 @@ function Suggestion(props) {
             <KeyboardArrowUpIcon />
             <p className="self-start  ml-2  -mt-2">{props.upvotes}</p>
           </div>
-          <div className='grow flex '>
+          <div className="grow sm:mt-4 sm:ml-4 flex  ">
             <Avatar />
-            <div className='ml-6'>
+            <div className="ml-6">
               <h4 className="font-semibold">Francis Mayanja</h4>
-              <p className="-mt-2 opacity-50">@bafra</p>
+              <p className=" ml-2 text-sm opacity-50">28th Jan,2022</p>
             </div>
           </div>
 
@@ -34,12 +35,10 @@ function Suggestion(props) {
           )}
         </div>
         <div>
-          <header className="mt-15 ml-2  sm:mt-4 grow  font-semibold sm:font-bold opacity-90 capitalize">
+          <header className="mt-15 ml-2  sm:ml-14  grow  font-semibold sm:font-bold opacity-90 capitalize">
             {props.feedback}
           </header>
-          <p className="px-2 sm:ml-12 sm:-mt-5  opacity-50">
-            {props.description}
-          </p>
+          <p className="px-2 sm:ml-12   opacity-50">{props.description}</p>
         </div>
 
         <div className="flex mt-2 ">
@@ -48,7 +47,7 @@ function Suggestion(props) {
               <KeyboardArrowUpIcon />
               <p className="self-start  ml-2  -mt-2">{props.upvotes}</p>
             </div>
-            <h5 className="bg-gray-200 sm:ml-24 px-2 py-2 h-10 mt-2 mr-4  rounded-md opacity-70 ">
+            <h5 className="bg-gray-200 text-violet-900 font-semibold sm:ml-24 px-2 py-2 h-10 mt-2 mr-4  rounded-md opacity-70 ">
               {props.category}
             </h5>
             <IconButton>

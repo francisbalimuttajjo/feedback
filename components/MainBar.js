@@ -28,20 +28,20 @@ function MainBar(props) {
   return (
     <div className="w-full text-white  ">
       <div
-        className="bg-purple-900 sticky top-0
-          flex justify-around w-full h-12 sm:h-20 sm:rounded-md sm:w-11/12 sm:ml-16
+        className="bg-slate-900 sticky top-0
+          flex justify-around w-full h-14 sm:h-20 sm:rounded-md sm:w-11/12 sm:ml-16
        md:mt-12 
       "
       >
         <div className="hidden sm:block mt-2">
           <AccountBalanceIcon sx={{ marginTop: "15px", marginLeft: "10px" }} />
           <h5 className="ml-5 -mt-6  sm:ml-12">
-            {props.data.length} Suggestion (s)
+            {props.data.length}    {props.data.length >1 ? "Suggestions": "Suggestion"}  
           </h5>
         </div>
         <div>
         
-          <div className="opacity-80 mt-4   ml-2.5 mr-5 sm:mt-10">
+          <div className="opacity-80 mt-4   ml-2.5 mr-5 sm:mt-6">
             <label htmlFor="selectBy">Sort by: &nbsp;</label>
             <FormControl
               variant="standard"
@@ -64,20 +64,13 @@ function MainBar(props) {
               </Select>
             </FormControl>
 
-            {/* <select name="categories" className=" cursor-pointer bg-purple-900 font-semibold text-white-900 w-35">
-              
-              {categories.map((optionValue) => (
-                <option className='bg-white w-16 my-4   text-black' value={optionValue} key={optionValue}>
-                  {optionValue}
-                </option>
-              ))}
-            </select> */}
+            
           </div>
         </div>
 
         <button
           onClick={() => setView(true)}
-          className=" bg-fuchsia-500 h-8 px-1 mt-2 hover:bg-blue-500 rounded-md sm:mt-6 "
+          className=" bg-fuchsia-500 h-8 px-1 mt-3 hover:bg-blue-500 rounded-md sm:mt-6 "
         >
           + add Feedback
         </button>

@@ -6,11 +6,12 @@ function AddComment() {
   const [text, setText] = React.useState("");
 
   return (
-    <div className="flex flex-col p-10 bg-white rounded-md mt-4 w-11/12 mx-auto">
+    <div className="flex  sm:ml-16 flex-col p-10 bg-white rounded-md mt-4 w-11/12 mx-auto">
       <h4 className="mb-2 font-semibold">Add Comment</h4>
       <div>
         <textarea
-          className="bg-gray-200 h-20 resize-none ml-4 w-10/12"
+          className="bg-gray-200 mt-3 p-2  rounded-md  ml-8 h-20 resize-none ml-4 w-10/12"
+             
           placeholder="enter comment"
           maxLength="250"
           onChange={(e) => setText(e.target.value)}
