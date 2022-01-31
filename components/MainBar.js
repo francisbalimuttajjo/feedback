@@ -18,14 +18,16 @@ function MainBar(props) {
   //
   return (
     <div className="w-full text-white  ">
-      <div className="bg-purple-900 flex justify-around w-full h-12 sm:h-20 sm:rounded-md sm:w-11/12 sm:ml-16
-      md:ml-10 md:mt-12 
+      <div
+        className="bg-purple-900 flex justify-around w-full h-12 sm:h-20 sm:rounded-md sm:w-11/12 sm:ml-16
+       md:mt-12 
       "
-      
       >
         <div className="hidden sm:block mt-2">
           <AccountBalanceIcon sx={{ marginTop: "15px", marginLeft: "10px" }} />
-          <h5 className="ml-5 -mt-6  sm:ml-12">{props.data.length} Suggestions</h5>
+          <h5 className="ml-5 -mt-6  sm:ml-12">
+            {props.data.length} Suggestion (s)
+          </h5>
         </div>
         <div>
           <div className="opacity-70 mt-3 ml-2.5 mr-5 sm:mt-6">
@@ -40,7 +42,7 @@ function MainBar(props) {
             </select>
           </div>
         </div>
-        
+
         <button
           onClick={() => setView(true)}
           className=" bg-fuchsia-500 h-8 px-1 mt-2 hover:bg-blue-500 rounded-md sm:mt-6 "
