@@ -1,39 +1,32 @@
 import React from "react";
 import { useRouter } from "next/router";
 import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
-import { IconButton, Button } from "@mui/material";
+import { IconButton } from "@mui/material";
 import Suggestion from "./Suggestion";
 import AddComment from "./AddComment";
 import Comment from "./Comments";
-import styles from "../styles/feedback.module.css";
+
 
 function Feedback(props) {
   const router = useRouter();
   return (
-    <div className={styles.container}>
-      <div className={styles.heading}>
-        <div className={styles.backIcon}>
+    <div>
+      <div className="flex  opacity-50 ">
+        <div className="flex mt-2  ">
           <IconButton onClick={() => router.back()}>
-            <ArrowBackIosNewIcon
-              fontSize="small"
-              sx={{ fontSize: "10px", marginLeft: "5px", marginTop: "-5px" }}
-            />
+            <ArrowBackIosNewIcon fontSize="small" sx={{ fontSize: "14px" }} />
           </IconButton>
 
-          <h6 className={styles.back}>Go back</h6>
+          <h6 className="mt-1  ">Go back</h6>
         </div>
-        <div className={styles.btn}>
-          <Button
-            variant="contained"
-            size="small"
-            sx={{
-              textTransform: "capitalize",
-              marginTop: "1em",
-              marginLeft: "60%",
-            }}
+        <div className="right-3 absolute">
+          <button
+            onClick={() => setView(true)}
+            className=" bg-purple-900 text-white
+             h-8 px-2 mt-2 hover:bg-blue-900 rounded-md  "
           >
             Edit Feedback
-          </Button>
+          </button>
         </div>
       </div>
       <Suggestion
@@ -44,7 +37,7 @@ function Feedback(props) {
         category={props.category}
         length={props.length}
       />
-      <Comment comments={props.comments}  />
+      <Comment comments={props.comments} />
       <AddComment />
     </div>
   );

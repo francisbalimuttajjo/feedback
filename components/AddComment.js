@@ -4,37 +4,32 @@ import styles from "../styles/addComment.module.css";
 
 function AddComment() {
   const [text, setText] = React.useState("");
+
   return (
-    <div className={styles.container}>
-      <div className={styles.heading}>
-        <h4>Add Comment</h4>
-      </div>
+    <div className="flex flex-col p-10 bg-white rounded-md mt-4 w-11/12 mx-auto">
+      <h4 className="mb-2 font-semibold">Add Comment</h4>
       <div>
         <textarea
-          className={styles.textArea}
+          className="bg-gray-200 h-20 resize-none ml-4 w-10/12"
           placeholder="enter comment"
           maxLength="250"
           onChange={(e) => setText(e.target.value)}
         ></textarea>
       </div>
-      <div className={styles.addComment}>
-        <h5 className={styles.charsLeft}>
+
+      <div className="flex flex-row justify-around">
+        <p className="flex flex-row justify-around mt-2">
           {250 - text.length} Characters Left
-        </h5>
-        <Button
-          variant="contained"
-          size="small"
-          sx={{
-            height: "2em",
-            
-            backgroundColor: "purple",
-             padding: "5px",
-            textTransform: "capitalize",
-            marginTop: "1em",
-          }}
+        </p>
+
+        <button
+          className=" bg-blue-900 text-white
+             h-8 px-2 mt-2 hover:bg-blue-400 rounded-md  "
         >
-         Comment
-        </Button>
+          Post Comment
+        </button>
+       
+        
       </div>
     </div>
   );
