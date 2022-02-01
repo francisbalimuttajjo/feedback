@@ -5,6 +5,10 @@ function AddComment(props) {
   const [text, setText] = React.useState("");
   const [loading, setLoading] = React.useState(false);
   function addComment(suggestion) {
+    if (!text.length) {
+      alert("no empty fields");
+      return;
+    }
     setLoading(true);
     axios
       .post("/api/comments", {

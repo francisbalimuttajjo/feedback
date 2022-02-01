@@ -29,6 +29,8 @@ function Comments(props) {
           replies={comment.replies}
           authorName='francis Mayanja'
           reply={comment.comment}
+          id={comment._id}
+          user={props.user}
         />
         
      

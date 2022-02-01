@@ -17,6 +17,7 @@ function FeedbackComponent(props) {
         feedback={suggestion.title}
         length={suggestion.comment.length}
         id={router.query.id}
+        user='francis mayanja'
       />
     </>
   );
