@@ -21,10 +21,10 @@ function Suggestion(props) {
             <p className="self-start  ml-2  -mt-2">{props.upvotes}</p>
           </div>
           <div className="grow sm:mt-4 sm:ml-4 flex  ">
-            <Avatar />
+            <Avatar src={props.src} />
             <div className="ml-6">
-              <h4 className="font-semibold">Francis Mayanja</h4>
-              <p className=" ml-2 text-sm opacity-50">28th Jan,2022</p>
+              <h4 className="font-semibold">{props.name}</h4>
+              <p className=" ml-2 text-sm opacity-50">{props.createDate}</p>
             </div>
           </div>
 

@@ -10,6 +10,7 @@ import {
   Typography,
   TextField,
 } from "@mui/material";
+import { useSession,signIn } from "next-auth/react";
 import { categories } from "../data";
 import styles from "../styles/form.module.css";
 
@@ -26,6 +27,9 @@ function Form(props) {
   const [text, setText] = React.useState("");
   const [loading, setLoading] = React.useState(false);
   const selectRef = React.useRef().currentValue;
+  const session=useSession()
+
+
 
   const submitHandler = async (e) => {
     e.preventDefault();
@@ -41,6 +45,9 @@ function Form(props) {
         title,
         category,
         suggestion: text,
+        name:session.data.user.name,
+        image:session.data.user.image,
+        email:session.data.user.email
       });
 
       if (res.data.status === "success") {

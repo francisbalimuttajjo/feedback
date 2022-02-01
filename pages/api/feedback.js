@@ -4,14 +4,16 @@ import Suggestion from "../../models/Suggestion";
 export default async function handler(req, res) {
   connect();
   if (req.method === "POST") {
-    
     try {
-      const { title, category, suggestion } = req.body;
+      const { title, category, suggestion, image, name, email } = req.body;
 
       const data = await Suggestion.create({
         title,
         category,
         suggestion,
+        image,
+        name,
+        email,
         upvotes: 0,
         comments: 0,
       });

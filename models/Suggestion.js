@@ -1,5 +1,5 @@
 import mongoose from "mongoose";
-import Comment from "./Comment";
+
 
 const suggestionModel = new mongoose.Schema(
   {
@@ -7,6 +7,17 @@ const suggestionModel = new mongoose.Schema(
       type: String,
       required: [true, "enter title"],
     },
+    name: {
+      type: String,
+      
+    },
+    image:{
+      type:String
+    },
+    email:{
+      type:String,
+    },
+
     category: {
       type: String,
       required: [true, "enter category"],
@@ -18,6 +29,10 @@ const suggestionModel = new mongoose.Schema(
     upvotes: {
       type: Number,
     },
+    createdAt:{
+      type:Date,
+      default:Date.now()
+    }
    
   },
   {
