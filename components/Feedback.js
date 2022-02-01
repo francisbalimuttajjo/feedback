@@ -69,7 +69,7 @@ function Feedback(props) {
       />
 
       <Comments comments={props.comments} />
-      <AddComment />
+      <AddComment id={props.id} />
     </div>
   );
 }

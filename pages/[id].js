@@ -1,10 +1,11 @@
 import React from "react";
 import Feedback from "../components/Feedback";
+import { useRouter } from "next/router";
 import axios from "axios";
 
-function feedback(props) {
+function FeedbackComponent(props) {
+  const router = useRouter();
   const suggestion = props.data;
-
 
   return (
     <>
@@ -15,20 +16,19 @@ function feedback(props) {
         comments={suggestion.comment}
         feedback={suggestion.title}
         length={suggestion.comment.length}
-        
+        id={router.query.id}
       />
     </>
   );
 }
 
-export default feedback;
+export default FeedbackComponent;
 
 export async function getServerSideProps(req) {
   const res = await axios.get(
-   // `http://localhost:3000/api/suggestions/${req.query.id}`
+    // `http://localhost:3000/api/suggestions/${req.query.id}`
     `https://feedbackbafra.vercel.app/api/suggestions/${req.query.id}`
   );
-    console.log(res)
   return {
     props: { data: res.data.data },
   };
