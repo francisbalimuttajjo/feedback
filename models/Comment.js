@@ -1,5 +1,5 @@
 import mongoose from "mongoose";
-// import Suggestion from './Suggestion'
+ import Reply from './Reply'
 
 const commentModel = new mongoose.Schema(
   {
@@ -7,6 +7,7 @@ const commentModel = new mongoose.Schema(
       type: String,
       required: [true, "enter comment"],
     },
+  
     user: {
       // type: mongoose.Schema.ObjectId,
       type: String,
@@ -23,6 +24,17 @@ const commentModel = new mongoose.Schema(
     toOject: { virtuals: true },
   }
 );
+commentModel.pre(/^find/,function(){
+  this.populate({
+    path:'replies',
+    model: Reply
+  })
+})
 
+commentModel.virtual("replies", {
+  ref: "Reply",
+  foreignField: "comment",
+  localField: "_id",
+});
 export default mongoose.models["Comments"] ||
   mongoose.model("Comments", commentModel);

@@ -4,13 +4,44 @@ import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
 import { IconButton } from "@mui/material";
 import Suggestion from "./Suggestion";
 import AddComment from "./AddComment";
-import Comment from "./Comments";
+import MainComment from "./Comments";
+
+
+
+function Comments(props) {
+  return (
+    <div className="    flex rounded-md     flex-col bg-white     w-11/12  m-auto mt-4 px-2      sm:ml-16   ">
+      <div>
+        <h5 className="m-5 font-bold">
+          {props.comments.length}{" "}
+          {props.comments.length <= 1 ? "comment" : "comments"}
+        </h5>
+      </div>
+     
+      {props.comments.map((comment) => (
+         
+          <MainComment
+          key={comment._id}
+          src={comment.src}
+          name={comment.user}
+          alt={comment.alt}
+          username={comment.user}
+          replies={comment.replies}
+          authorName='francis Mayanja'
+          reply={comment.comment}
+        />
+        
+     
+      ))}
+    </div>
+  );
+}
 
 
 function Feedback(props) {
   const router = useRouter();
   return (
-    <div className='sm:w-9/12 sm:mx-auto md:w-2/4 mt-4'>
+    <div className="sm:w-9/12 sm:mx-auto md:w-2/4 mt-4">
       <div className="flex  opacity-80 font-bold ">
         <div className="flex mt-2  ">
           <IconButton onClick={() => router.back()}>
@@ -21,7 +52,6 @@ function Feedback(props) {
         </div>
         <div className="right-3 absolute  sm:mr-20 md:mr-64">
           <button
-            onClick={() => setView(true)}
             className=" bg-purple-900 text-white
              h-8 px-2 mt-2 hover:bg-blue-900 rounded-md  "
           >
@@ -37,7 +67,8 @@ function Feedback(props) {
         category={props.category}
         length={props.length}
       />
-      <Comment comments={props.comments} />
+
+      <Comments comments={props.comments} />
       <AddComment />
     </div>
   );

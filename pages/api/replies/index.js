@@ -1,13 +1,17 @@
-import connect from "../../db/db";
-import Suggestion from "../../models/Suggestion";
-import Comment from "../../models/Comment";
+import connect from "../../../db/db";
+import Reply from "../../../models/Reply";
 
 export default async function handler(req, res) {
   connect();
-  if (req.method === "GET") {
+  if (req.method === "POST") {
+    
     try {
-      const data = await Suggestion.find().populate({  path: "comment",
-      model: Comment});
+      const { user,comment,reply} = req.body;
+
+      const data = await Reply.create({
+        user,comment,reply
+      });
+
       return res.status(200).json({
         status: "success",
         data,
