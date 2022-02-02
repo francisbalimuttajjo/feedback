@@ -7,16 +7,27 @@ const replyModel = new mongoose.Schema(
       type: String,
       required: [true, "enter reply"],
     },
-    user: {
-      // type: mongoose.Schema.ObjectId,
+    email: {
+      
       type: String,
-      //   required: [true, "enter category"],
+      
+    },
+    image: {
+      
+      type: String,
+      
+    },
+    name: {
+      
+      type: String,
+      
     },
     comment: {
       type: mongoose.Schema.ObjectId,
       ref: "Comments",
       required: [true, "Comment must belong to a suggestion"],
     },
+  
   },
   {
     toJSON: { virtuals: true },

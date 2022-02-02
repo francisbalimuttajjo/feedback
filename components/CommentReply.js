@@ -20,7 +20,7 @@ function CommentReply(props) {
         </h6>
         <p className="inline  opacity-70">{props.reply}</p>
       </>
-      {/* <Divider  /> */}
+      <Divider  />
     </div>
   );
 }

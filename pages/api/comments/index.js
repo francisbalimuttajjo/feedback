@@ -4,15 +4,15 @@ import Comment from "../../../models/Comment";
 export default async function handler(req, res) {
   connect();
   if (req.method === "POST") {
-    
     try {
-      const { comment, suggestion, user } = req.body;
+      const { comment, suggestion, email, image, name } = req.body;
 
       const data = await Comment.create({
         comment,
         suggestion,
-        user,
-      
+        email,
+        image,
+        name,
       });
 
       return res.status(200).json({

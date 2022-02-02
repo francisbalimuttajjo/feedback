@@ -77,8 +77,8 @@ function MainBar(props) {
             onClick={() =>
               signIn("google", {
                 callbackUrl:
-                  // "https://feedbackbafra.vercel.app/"
-                  "http://localhost:3000/",
+                   "https://feedbackbafra.vercel.app/"
+                  //"http://localhost:3000/",
               })
             }
             className=" bg-fuchsia-500 h-8 px-3 mt-3 hover:bg-blue-500 rounded-md sm:mt-6 "
@@ -96,8 +96,9 @@ function MainBar(props) {
           feedback={item.title}
           upvotes={item.upvotes}
           name={item.name}
+          createDate={item.createdAt.split('T')[0]}
           src={item.image}
-          createDate={item.createdAt}
+          
           id={item._id}
           length={item.comment.length}
         />

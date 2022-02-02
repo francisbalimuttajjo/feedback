@@ -1,6 +1,7 @@
 import React from "react";
 import CommentReply from "./CommentReply";
 import { Avatar, Divider } from "@mui/material";
+import {useSession} from "next-auth/react";
 import axios from 'axios'
 
 
@@ -8,15 +9,17 @@ const Comments = (props) => {
   const [reply, setReply] = React.useState(false);
   const [loading, setLoading] = React.useState(false);
   const [text, setText] = React.useState('');
-  const handleReply=()=>{
+  const session =useSession()
 
-  
+  const handleReply=()=>{  
     if(!text.length){
       alert('please add reply')
       return;
     }
     setLoading(true)
-        axios.post('/api/replies',{user:props.user,reply:text,comment:props.id}).then(res=>{
+        axios.post('/api/replies',{name:session.data.user.name,
+          email:session.data.user.email,image:session.data.user.image,
+          reply:text,comment:props.id}).then(res=>{
       
       if(res.data.status){
         setLoading(false)
@@ -40,12 +43,13 @@ const Comments = (props) => {
               <p className="opacity-40 -mt-1  mb-1">{props.username}</p>
             </div>
             <div className="text-blue-700  right-12 absolute sm:mr-24 md:mr-80     ">
-              <button
+             {session.data &&  <button
                 onClick={()=>setReply(true)}
                 className="hover:font-bold hover:underline"
               >
                 Reply
               </button>
+             } 
             </div>
           </div>
           <div>
@@ -55,10 +59,11 @@ const Comments = (props) => {
               <CommentReply
                 key={reply._id}
                 reply={reply.reply}
-                name={props.name}
-                username={props.username}
+                name={reply.name}
+                src={reply.image}
+                username={reply.email}
                 id={props.id}
-                authorName={props.authorName}
+                authorName={props.name.split(' ')[0]}
               />
             ))}
           </div>

@@ -10,7 +10,7 @@ import {
   Typography,
   TextField,
 } from "@mui/material";
-import { useSession,signIn } from "next-auth/react";
+import { useSession } from "next-auth/react";
 import { categories } from "../data";
 import styles from "../styles/form.module.css";
 

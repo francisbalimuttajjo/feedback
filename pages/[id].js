@@ -17,7 +17,10 @@ function FeedbackComponent(props) {
         feedback={suggestion.title}
         length={suggestion.comment.length}
         id={router.query.id}
-        user='francis mayanja'
+        src={suggestion.image}
+        name={suggestion.name}
+       
+        createDate={suggestion.createdAt}
       />
     </>
   );
@@ -27,7 +30,7 @@ export default FeedbackComponent;
 
 export async function getServerSideProps(req) {
   const res = await axios.get(
-    // `http://localhost:3000/api/suggestions/${req.query.id}`
+    //const `http://localhost:3000/api/suggestions/${req.query.id}`
     `https://feedbackbafra.vercel.app/api/suggestions/${req.query.id}`
   );
   return {

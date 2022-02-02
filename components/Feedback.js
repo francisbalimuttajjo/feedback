@@ -22,15 +22,14 @@ function Comments(props) {
          
           <MainComment
           key={comment._id}
-          src={comment.src}
-          name={comment.user}
+          src={comment.image}
+          name={comment.name}
           alt={comment.alt}
-          username={comment.user}
+          username={comment.email}
           replies={comment.replies}
-          authorName='francis Mayanja'
           reply={comment.comment}
           id={comment._id}
-          user={props.user}
+          
         />
         
      
@@ -68,6 +67,9 @@ function Feedback(props) {
         description={props.description}
         category={props.category}
         length={props.length}
+        src={props.src}
+        name={props.name}
+        createDate={props.createDate}
       />
 
       <Comments comments={props.comments} />
