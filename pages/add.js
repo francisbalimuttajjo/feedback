@@ -5,6 +5,7 @@ import { Select, CircularProgress, MenuItem, IconButton } from "@mui/material";
 import axios from 'axios'
 import { categories } from "../data";
 import { useSession, getSession } from "next-auth/react";
+import Notification from '../components/Notification'
 
 
 const Add = () => {
@@ -13,6 +14,8 @@ const Add = () => {
   const [category, setCategory] = React.useState("");
   const [title, setTitle] = React.useState("");
   const [text, setText] = React.useState("");
+  const [message, setMessage] = React.useState(null);
+  const [error, setError] = React.useState(null);
   const [loading, setLoading] = React.useState(false);
   const selectRef = React.useRef().currentValue;
 
@@ -20,12 +23,12 @@ const Add = () => {
     e.preventDefault();
 
     if (!title || !category || !text) {
-      alert("please fill all fields");
+     setError(' Please fill all fields')
       return;
     }
     try {
       setLoading(true);
-      console.log(title,category,text)
+     
 
       const res = await axios.post("/api/feedback", {
         title,
@@ -40,16 +43,20 @@ const Add = () => {
         setLoading(false);
         setTitle("");
         setText("");
+        setMessage('feedback added')
         setTimeout(() => window.location.reload(), 3000);
       }
     } catch (err) {
       setLoading(false);
-      console.log(err);
+            setError('Try again Later')
     }
   };
 
   return (
-    <div className="flex flex-col mx-auto sm:w-9/12 md:w-7/12">
+    <div className="flex flex-col mx-auto sm:w-9/12 md:w-6/12">
+     {error &&  <Notification severity='error' message={error} />}
+     {message &&  <Notification severity='success' message={message} />}
+      
       <div className="flex mt-6">
         <IconButton onClick={() => router.back()}>
           <ArrowBackIosNewIcon

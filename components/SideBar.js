@@ -11,7 +11,7 @@ const no = [2, 8, 9];
 function SideBar() {
   return (
     <div className="w-full 
-    sm:flex sm:flex-row sm:ml-16 sm:mb-4 sm:mt-4 md:flex-col md:w-1/4 md:mt-32 md:sticky md:h-screen md:top-2 ">
+    sm:flex sm:flex-row sm:ml-16 sm:mb-4 sm:mt-4 md:flex-col md:w-4/12 md:mt-32 md:sticky md:h-screen md:top-2 ">
       <div
         className="w-full h-16 bg-gradient-to-r from-violet-500 to-fuchsia-500 text-white flex justify-around
        sm:w-3/12 sm:h-32 sm:rounded-lg md:w-full
@@ -52,7 +52,7 @@ function SideBar() {
               ))}
             </ul>
           </div>
-          <div className="ml-9 md:ml-19">
+          <div className="ml-9 md:ml-20">
             <ul className="list-none ">
               {no.map((no) => (
                 <li key={no}>{no}</li>

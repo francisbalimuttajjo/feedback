@@ -2,18 +2,21 @@ import React from "react";
 import CommentReply from "./CommentReply";
 import { Avatar, Divider } from "@mui/material";
 import {useSession} from "next-auth/react";
+import Notification from './Notification'
 import axios from 'axios'
 
 
 const Comments = (props) => {
   const [reply, setReply] = React.useState(false);
+  const [error, setError] = React.useState(null);
+  const [message, setMessage] = React.useState(null);
   const [loading, setLoading] = React.useState(false);
   const [text, setText] = React.useState('');
   const session =useSession()
 
   const handleReply=()=>{  
     if(!text.length){
-      alert('please add reply')
+      setError('please add reply')
       return;
     }
     setLoading(true)
@@ -24,7 +27,8 @@ const Comments = (props) => {
       if(res.data.status){
         setLoading(false)
         setText("")
-        alert('reply saved')
+        setMessage('reply saved')
+        window.location.reload()
         return
         
       }
@@ -32,6 +36,8 @@ const Comments = (props) => {
   }
   return (
     <div className="flex flex-col">
+      {error && <Notification  severity='error' message={error}/>}
+      {message && <Notification  severity='success' message={message}/>}
       <div className="flex  mb-2 ">
         <div className="flex m-2">
           <Avatar height={5} width={5} src={props.src} alt={props.alt} />
