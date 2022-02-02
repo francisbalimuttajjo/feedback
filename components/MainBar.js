@@ -2,10 +2,11 @@ import React from "react";
 import MenuItem from "@mui/material/MenuItem";
 import { FormControl, Select } from "@mui/material";
 import { useSession, signIn } from "next-auth/react";
+import {useRouter} from "next/router"
 import Suggestion from "./Suggestion";
-import Form from "./Form";
+
 import AccountBalanceIcon from "@mui/icons-material/AccountBalance";
-import Modal from "./Modal";
+
 const categories = [
   "Most Upvotes",
   "Least Upvotes",
@@ -14,11 +15,10 @@ const categories = [
 ];
 //
 function MainBar(props) {
-  const [view, setView] = React.useState(false);
-  const open = () => setView(true);
-  const close = () => setView(false);
+
   const [value, setValue] = React.useState(categories[0]);
   const session = useSession();
+  const router = useRouter()
 
   const handleChange = (event) => {
     setValue(event.target.value);
@@ -66,7 +66,7 @@ function MainBar(props) {
         </div>
         {session.data && (
           <button
-            onClick={() => setView(true)}
+            onClick={() => router.replace('/add')}
             className=" bg-fuchsia-500 h-8 px-1 mt-3 hover:bg-blue-500 rounded-md sm:mt-6 "
           >
             + add Feedback
@@ -103,11 +103,7 @@ function MainBar(props) {
           length={item.comment.length}
         />
       ))}
-      {view && (
-        <Modal handleOpen={open} open={view}>
-          <Form handleBack={close} />
-        </Modal>
-      )}
+      
     </div>
   );
 }

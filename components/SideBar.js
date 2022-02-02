@@ -21,7 +21,7 @@ function SideBar() {
           <p className="-ml-6 font-semibold text-2xl sm:mt-12 md:-m1-8">Budget App</p>
           <p className="-ml-6 opacity-70 md:-m1-8"> Feedback Forum</p>
         </div>
-        <div className="my-auto sm:hidden ml-10  md:hidden lg:hidden ">
+        <div className="my-auto sm:hidden -right-10 relative  md:hidden lg:hidden ">
           <IconButton sx={{ color: "white" }}>
             <MenuIcon />
           </IconButton>
