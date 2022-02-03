@@ -53,6 +53,7 @@ function Feedback(props) {
         </div>
         <div className="right-3 absolute  sm:mr-20 md:mr-64">
           <button
+          onClick={()=>router.push(`/edit/${props.id}`)}
             className=" bg-purple-900 text-white
              h-8 px-2 mt-2 hover:bg-blue-900 rounded-md  "
           >

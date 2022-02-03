@@ -86,14 +86,14 @@ const Comments = (props) => {
           ></textarea>
           <div className="flex justify-center ml-10">
             <button
-              className="bg-purple-600 hover:bg-blue-500 h-10 mb-2 mr-10 p-2 rounded-md text-white h-10"
+              className="bg-purple-600 hover:bg-blue-500  mb-2 mr-10 p-2 rounded-md text-white h-10"
               onClick={() => setReply(false)}
             >
               cancel
             </button>
             <button 
             onClick={handleReply}
-            className="bg-blue-600 hover:bg-purple-500 h-10 mb-2 mr-10 p-2 rounded-md text-white h-10">
+            className="bg-blue-600 hover:bg-purple-500  mb-2 mr-10 p-2 rounded-md text-white h-10">
              {!loading && 'Post Reply'}
              {loading && 'Replying....'}
             </button>

@@ -41,7 +41,7 @@ function AddComment(props) {
           <h4 className="mb-2 font-semibold">Add Comment</h4>
           <div>
             <textarea
-              className="bg-gray-200 mt-3 p-2  rounded-md  ml-8 h-20 resize-none ml-4 w-10/12"
+              className="bg-gray-200 mt-3 p-2  rounded-md  ml-8 h-20 resize-none  w-10/12"
               placeholder="enter comment"
               maxLength="300"
               onChange={(e) => setText(e.target.value)}

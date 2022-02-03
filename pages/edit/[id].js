@@ -2,61 +2,71 @@ import React from "react";
 import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
 import { useRouter } from "next/router";
 import { Select, CircularProgress, MenuItem, IconButton } from "@mui/material";
-import axios from 'axios'
-import { categories } from "../data";
+import axios from "axios";
+import { categories } from "../../data";
 import { useSession, getSession } from "next-auth/react";
-import Notification from '../components/Notification'
+import Notification from "../../components/Notification";
 
-
-const Add = () => {
+const Edit = (props) => {
   const router = useRouter();
-  const session =useSession()
-  const [category, setCategory] = React.useState("");
-  const [title, setTitle] = React.useState("");
-  const [text, setText] = React.useState("");
+  const [category, setCategory] = React.useState(props.data.category);
+  const [title, setTitle] = React.useState(props.data.title);
+  const [text, setText] = React.useState(props.data.suggestion);
   const [message, setMessage] = React.useState(null);
   const [error, setError] = React.useState(null);
   const [loading, setLoading] = React.useState(false);
+  const [deleting, setDeleting] = React.useState(false);
   const selectRef = React.useRef().currentValue;
+
+  const deleteHandler = () => {
+    setDeleting(true);
+    axios
+      .delete(`/api/suggestions/delete/${router.query.id}`)
+      .then((res) => {
+        setDeleting(false);
+        setMessage("operation successfull");
+        router.replace("/");
+      })
+      .catch((err) => {
+        setDeleting(false);
+        console.log(err);
+      });
+  };
 
   const submitHandler = async (e) => {
     e.preventDefault();
-
     if (!title || !category || !text) {
-     setError(' Please fill all fields')
+      setError(" Please fill all fields");
       return;
     }
     try {
       setLoading(true);
-     
 
-      const res = await axios.post("/api/feedback", {
-        title,
-        category,
-        suggestion: text,
-        name: session.data.user.name,
-        image: session.data.user.image,
-        email: session.data.user.email,
-      });
-
+      const res = await axios.patch(
+        `/api/suggestions/edit/${router.query.id}`,
+        {
+          title,
+          category,
+          suggestion: text,
+        }
+      );
+      console.log(res);
       if (res.data.status === "success") {
         setLoading(false);
-        setTitle("");
-        setText("");
-        setMessage('feedback added')
-        setTimeout(() => window.location.reload(), 3000);
+        setMessage("update successfull");
+        setTimeout(() => router.replace(`/${router.query.id}`), 3000);
       }
     } catch (err) {
       setLoading(false);
-            setError('Try again Later')
+      setError("Try again Later");
     }
   };
 
   return (
     <div className="flex flex-col mx-auto sm:w-9/12 md:w-6/12">
-     {error &&  <Notification severity='error' message={error} />}
-     {message &&  <Notification severity='success' message={message} />}
-      
+      {error && <Notification severity="error" message={error} />}
+      {message && <Notification severity="success" message={message} />}
+
       <div className="flex mt-6">
         <IconButton onClick={() => router.back()}>
           <ArrowBackIosNewIcon
@@ -105,7 +115,7 @@ const Add = () => {
               inputRef={selectRef}
             >
               <MenuItem value="">
-                <em className='text-blue-600'>Choose Category</em>
+                <em className="text-blue-600">Choose Category</em>
               </MenuItem>
               {categories.map((item) => (
                 <MenuItem key={item} value={item}>
@@ -134,7 +144,7 @@ const Add = () => {
                 className="w-full font-bold hover:bg-blue-500 text-white rounded-md my-2 py-2 bg-fuchsia-700  "
                 type="submit"
               >
-                {!loading && "Add Feedback"}
+                {!loading && "Edit Feedback"}
                 {loading && <CircularProgress color="inherit" />}
               </button>
             </div>
@@ -145,25 +155,42 @@ const Add = () => {
           >
             Cancel
           </button>
+          <button
+            className="w-10/12 ml-6 mb-4 rounded-md  hover:bg-blue-500 text-white font-bold my-2 py-2 bg-red-500 bg-violet-900"
+            onClick={deleteHandler}
+          >
+            {!deleting && " Delete"}
+            {deleting && " Deleting....!"}
+          </button>
         </div>
       </div>
     </div>
   );
 };
 
-export async function getServerSideProps(context) {
-  const session = await getSession({ req: context.req });
-  if (!session) {
-    return {
-      redirect: {
-        destination: "/",
-        permanent: false,
-      },
-    };
-  }
+export async function getServerSideProps(req) {
+  const res = await axios.get(
+    //const `http://localhost:3000/api/suggestions/${req.query.id}`
+    `https://feedbackbafra.vercel.app/api/suggestions/${req.query.id}`
+  );
   return {
-    props: { session },
+    props: { data: res.data.data },
   };
 }
 
-export default Add;
+// export async function getServerSideProps(context) {
+//   const session = await getSession({ req: context.req });
+//   if (!session) {
+//     return {
+//       redirect: {
+//         destination: "/",
+//         permanent: false,
+//       },
+//     };
+//   }
+//   return {
+//     props: { session },
+//   };
+// }
+
+export default Edit;
