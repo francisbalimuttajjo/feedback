@@ -106,6 +106,7 @@ function MainBar(props) {
           </button>
         )}
       </div>
+      
       {props.data.map((item) => (
         <Suggestion
           homepage
@@ -115,7 +116,7 @@ function MainBar(props) {
           feedback={item.title}
           upvotes={item.upvotes}
           name={item.name}
-          createDate={item.createdAt.split("T")[0]}
+          createDate={item.createdAt}
           src={item.image}
           id={item._id}
           length={item.comment.length}

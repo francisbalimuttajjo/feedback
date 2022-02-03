@@ -8,7 +8,10 @@ import { categories } from "../data";
 const planned = ["Planned", "In Progress", "Fixed"];
 const no = [2, 8, 9];
 
-function SideBar() {
+
+
+function SideBar(props) {
+
   return (
     <div className="w-full 
     sm:flex sm:flex-row sm:ml-16 sm:mb-4 sm:mt-4 md:flex-col md:w-4/12 md:mt-32 md:sticky md:h-screen md:top-2 ">
@@ -30,7 +33,7 @@ function SideBar() {
 
       <div className="hidden  overflow-hidden sm:block  md:block rounded-lg ml-6 bg-white w-3/12  h-32 md:w-full md:ml-0 md:mt-3 md:overflow-hidden">
         {categories.map((item) => (
-          <StyledButton className="bg-gray-200" key={item}>
+          <StyledButton onClick={()=>props.handleFilter(item)} className="bg-gray-200" key={item}>
             {item}
           </StyledButton>
         ))}

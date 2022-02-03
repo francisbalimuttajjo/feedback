@@ -52,6 +52,7 @@ function Suggestion(props) {
             </h5>
             <IconButton>
               <Image
+              className='opacity-80'
                 height="36px"
                 width="36px"
                 alt="upvote "

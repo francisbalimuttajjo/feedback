@@ -107,7 +107,7 @@ const Add = () => {
               <MenuItem value="">
                 <em className='text-blue-600'>Choose Category</em>
               </MenuItem>
-              {categories.map((item) => (
+              {categories.slice(1).map((item) => (
                 <MenuItem key={item} value={item}>
                   {item}
                 </MenuItem>

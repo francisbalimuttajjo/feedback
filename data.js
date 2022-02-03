@@ -1,4 +1,4 @@
-const categories=['feature','ui','ux','bug','enhancement']
+const categories=['all','feature','ui','ux','bug','enhancement']
 const sortingCategories = [
     "Most Upvotes",
     "Least Upvotes",
