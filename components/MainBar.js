@@ -69,7 +69,7 @@ function MainBar(props) {
                 id="demo-simple-select-standard"
                 value={value}
                 onChange={handleChange}
-                sx={{ color: "white" }}
+                sx={{ color: "white",fontSize:'15px' }}
               >
                 {sortingCategories.map((optionValue) => (
                   <MenuItem value={optionValue} key={optionValue}>
