@@ -1,14 +1,17 @@
 import React from "react";
 import Feedback from "../components/Feedback";
+import Head from "../components/Head";
 import { useRouter } from "next/router";
 import axios from "axios";
 
 function FeedbackComponent(props) {
+  
   const router = useRouter();
   const suggestion = props.data;
 
   return (
     <>
+    <Head title={suggestion.title}/>
       <Feedback
         upvotes={suggestion.upvotes}
         description={suggestion.suggestion}

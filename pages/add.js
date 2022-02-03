@@ -44,7 +44,7 @@ const Add = () => {
         setTitle("");
         setText("");
         setMessage('feedback added')
-        setTimeout(() => window.location.reload(), 3000);
+        setTimeout(() => router.replace('/'), 3000);
       }
     } catch (err) {
       setLoading(false);
@@ -96,7 +96,7 @@ const Add = () => {
                 m: 1,
                 minWidth: "75%",
                 marginTop: "12px",
-                marginLeft: "5%",
+                marginLeft: "10%",
               }}
               value={category}
               onChange={(e) => setCategory(e.target.value)}

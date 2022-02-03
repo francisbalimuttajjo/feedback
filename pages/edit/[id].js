@@ -4,8 +4,10 @@ import { useRouter } from "next/router";
 import { Select, CircularProgress, MenuItem, IconButton } from "@mui/material";
 import axios from "axios";
 import { categories } from "../../data";
+import EditIcon from "@mui/icons-material/Edit";
 import { useSession, getSession } from "next-auth/react";
 import Notification from "../../components/Notification";
+import Head from "../../components/Head";
 
 const Edit = (props) => {
   const router = useRouter();
@@ -64,6 +66,7 @@ const Edit = (props) => {
 
   return (
     <div className="flex flex-col mx-auto sm:w-9/12 md:w-6/12">
+      <Head title="editing" />
       {error && <Notification severity="error" message={error} />}
       {message && <Notification severity="success" message={message} />}
 
@@ -72,17 +75,15 @@ const Edit = (props) => {
           <ArrowBackIosNewIcon
             sx={{ fontSize: "12px", color: "blue", marginRight: "15px" }}
           />
-          <p className="text-sm font-bold">Go Back</p>
         </IconButton>
+        <p className="text-sm mt-1 font-bold">Go Back</p>
       </div>
       <div className="bg-white rounded-md w-11/12 mx-auto mt-16">
         <div className=" flex justify-center  -mt-7 ml-8  bg-gradient-to-r text-white from-violet-500 to-fuchsia-500 rounded-full h-10 w-10">
-          <h2 className="font-extrabold mx-4  mt-2">+</h2>
+          <EditIcon sx={{ marginTop: 1 }} />
         </div>
         <div>
-          <h1 className="font-bold opacity-70 ml-7 mt-6">
-            Create New Feedback
-          </h1>
+          <h1 className="font-bold opacity-70 ml-7 mt-6">Edit Feedback</h1>
           <h4 className="font-semibold opacity-70 ml-7 mt-6">Feedback Title</h4>
           <p className="text-sm ml-6  opacity-50 ">
             Add a short,descriptive headline
@@ -106,7 +107,7 @@ const Edit = (props) => {
                 m: 1,
                 minWidth: "75%",
                 marginTop: "12px",
-                marginLeft: "5%",
+                marginLeft: "10%",
               }}
               value={category}
               onChange={(e) => setCategory(e.target.value)}
