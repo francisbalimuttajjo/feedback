@@ -5,32 +5,41 @@ import Main from "../components/MainBar";
 import axios from "axios";
 
 export default function Home(props) {
-  const [data, setData] = React.useState([]);
-
-  React.useEffect(() => {
-   
-      setData(props.data.data);
-    
-   
-  }, [props.data.data]
-  
-  );
-
-  
+  const [initialData, setData] = React.useState(props.data.data);
+  const [data, dispatch] = React.useReducer(reducer, props.data.data);
+  function reducer(data, action) {
+    const newData = [...data];
+    switch (action.type) {
+      case "ui":
+        return newData.filter((el) => el.category == "ui");
+        break;
+      case "reset":
+        return initialData;
+        break;
+      case "ux":
+        return data.filter((el) => el.category == "ux");
+        break;
+      case "bug":
+        return data.filter((el) => el.category == "bug");
+        break;
+      case "feature":
+        return data.filter((el) => el.category == "feature");
+        break;
+      case "enhancement":
+        return data.filter((el) => el.category == "enhancement");
+        break;
+    }
+    return data;
+  }
 
   const handleFilter = (val) => {
-    // if(props.data.data.length !=data.length){
-    //   setData(props.data.data);
-    // }
-    const newData = data.filter((el) => el.category == val);
-
-    setData(newData);
-    // console.log(data);
+    dispatch({ type: "reset" });
+    dispatch({ type: val });
   };
   return (
     <div className="md:flex md:w-4/5 md:mx-auto">
       <Head title="home" />
-      <Side data={data} handleFilter={handleFilter} />
+      <Side handleFilter={handleFilter} />
       <Main data={data} />
     </div>
   );

@@ -6,6 +6,7 @@ import axios from 'axios'
 import { categories } from "../data";
 import { useSession, getSession } from "next-auth/react";
 import Notification from '../components/Notification'
+import Head from '../components/Head'
 
 
 const Add = () => {
@@ -54,6 +55,7 @@ const Add = () => {
 
   return (
     <div className="flex flex-col mx-auto sm:w-9/12 md:w-6/12">
+      <Head title='new feedback'/>
      {error &&  <Notification severity='error' message={error} />}
      {message &&  <Notification severity='success' message={message} />}
       
