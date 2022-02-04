@@ -43,7 +43,7 @@ export default function CardComponent(props) {
           key={el._id}
           description={el.suggestion}
           category={el.category}
-          upvotes={el.upvotes}
+          upvotes={el.likes.length}
            planned={props.planned}
           comments={el.comment.length}
         />

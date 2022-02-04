@@ -25,10 +25,10 @@ function MainBar(props) {
         props.data.sort((a, b) => b.comment.length - a.comment.length);
         break;
       case "Least Upvotes":
-        props.data.sort((a, b) => a.upvotes - b.upvotes);
+        props.data.sort((a, b) => a.likes.length - b.likes.length);
         break;
       case "Most Upvotes":
-        props.data.sort((a, b) => b.upvotes - a.upvotes);
+        props.data.sort((a, b) => b.likes.length - a.likes.length);
         break;
       default:
         props.data.sort((a, b) => a.comment.length - b.comment.length);

@@ -76,15 +76,17 @@ function Suggestion(props) {
             <h5 className="bg-gray-200 text-violet-900 font-semibold sm:ml-24 px-2 py-2 h-10 mt-2 mr-4  rounded-md opacity-70 ">
               {props.category}
             </h5>
-            <IconButton onClick={handleLike}>
-              <Image
-                className="opacity-80"
-                height="36px"
-                width="36px"
-                alt="upvote "
-                src="/upvote.jpg"
-              />
-            </IconButton>
+            {session.data && (
+              <IconButton onClick={handleLike}>
+                <Image
+                  className="opacity-80"
+                  height="36px"
+                  width="36px"
+                  alt="upvote "
+                  src="/upvote.jpg"
+                />
+              </IconButton>
+            )}
           </div>
           <div className="flex mt-6 px-2">
             <CommentIcon
