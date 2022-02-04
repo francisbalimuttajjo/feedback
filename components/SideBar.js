@@ -42,9 +42,9 @@ function SideBar(props) {
         <div className="flex justify-around mb-4">
           <h5 className="opacity-60 text-blue-900 ml-1">Road Map</h5>
           <div className="text-blue-500 hover:text-blue-900 ">
-            <Link href="/view" > view all</Link>
+            <Link href="/roadmap" > view all</Link>
           </div>
-          
+            
         </div>
 
         <div className="flex flex-row opacity-60">

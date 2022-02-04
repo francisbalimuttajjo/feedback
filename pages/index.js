@@ -11,22 +11,22 @@ export default function Home(props) {
     const newData = [...data];
     switch (action.type) {
       case "ui":
-        return newData.filter((el) => el.category == "ui");
+        return newData.filter(el => el.category == "ui");
         break;
       case "reset":
         return initialData;
         break;
       case "ux":
-        return data.filter((el) => el.category == "ux");
+        return data.filter(el => el.category == "ux");
         break;
       case "bug":
-        return data.filter((el) => el.category == "bug");
+        return data.filter(el => el.category == "bug");
         break;
       case "feature":
-        return data.filter((el) => el.category == "feature");
+        return data.filter(el => el.category == "feature");
         break;
       case "enhancement":
-        return data.filter((el) => el.category == "enhancement");
+        return data.filter(el => el.category == "enhancement");
         break;
     }
     return data;

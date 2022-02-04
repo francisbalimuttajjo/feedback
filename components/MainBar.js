@@ -7,13 +7,8 @@ import Suggestion from "./Suggestion";
 import GoogleIcon from "@mui/icons-material/Google";
 import AccountBalanceIcon from "@mui/icons-material/AccountBalance";
 import { sortingCategories } from "../data";
+import NotFound from "./NotFound"
 
-//
-// "Most Upvotes",
-// "Least Upvotes",
-// "Most Comments",
-// "Least comments",
-// //
 function MainBar(props) {
   const [value, setValue] = React.useState(sortingCategories[2]);
   const session = useSession();
@@ -106,7 +101,7 @@ function MainBar(props) {
           </button>
         )}
       </div>
-      
+      {props.data.length === 0 && <NotFound />}
       {props.data.map((item) => (
         <Suggestion
           homepage

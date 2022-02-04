@@ -1,0 +1,48 @@
+import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
+import { IconButton } from "@mui/material";
+import { useRouter } from "next/router";
+import Head from "../components/Head";
+import {useState} from 'react'
+import Card from "../components/Card";
+export default function RoadMap() {
+  const router = useRouter();
+  const[active,setActive]=useState('Planned')
+  return (
+    <div>
+      <Head title="roadmap" />
+      <div className="text-white bg-slate-700 py-3 flex">
+        <div className="flex grow flex-col ">
+          <div className='flex'>
+            <IconButton onClick={() =>router.back()}>
+              <ArrowBackIosNewIcon
+                sx={{ fontSize: "14px", marginTop: "10px", color: "white" }}
+              />
+            </IconButton>
+            <p className="mt-3 opacity-80 font-bold">Go Back</p>
+          </div>
+          <p className='ml-6 mb-2 font-bold'>Roadmap</p>
+        </div>
+        
+        <button
+          onClick={() => router.replace("/add")}
+          className=" bg-fuchsia-500 font-bold h-8 mr-2 px-1 mt-2 hover:bg-blue-500 rounded-md sm:mt-6 "
+        >
+          + add Feedback
+        </button>
+      </div>
+      <nav className='mr-2 border-b-2 border-purple-400 p-4 h-16 ' >
+          <ul className='flex justify-between'>
+              <li className='
+               pb-5  w-1/4 hover:border-purple-500  hover:border-b-4 active:border-b-6 active:border-purple-500  hover:opacity-90   opacity-50  hover:cursor-pointer font-bold' 
+               onClick={()=>setActive('Planned')}>Planned(2) </li>
+              <li className='pb-5  w-1/4 hover:border-purple-500  hover:border-b-4 active:border-b-4 active:border-purple-500  hover:opacity-90   opacity-50  hover:cursor-pointer font-bold' onClick={()=>setActive('Progress')}>Progress(4) </li>
+              <li className='pb-5  w-1/4 hover:border-purple-500  hover:border-b-4 active:border-b-4 active:border-purple-500  hover:opacity-90   opacity-50  hover:cursor-pointer font-bold' onClick={()=>setActive('Live')}>Live(6) </li>
+          </ul>
+         
+      </nav>
+      {active==='Planned' && <Card title='Planned (2)' />}
+      {active==='Progress' && <Card title='In-Progress(0)' />}
+      {active==='Live' && <Card title='Live(3)' />}
+    </div>
+  );
+}

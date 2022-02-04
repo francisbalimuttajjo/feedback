@@ -3,6 +3,11 @@ module.exports = {
     "./pages/**/*.{js,ts,jsx,tsx}",
     "./components/**/*.{js,ts,jsx,tsx}",
   ],
+  variants: {
+    extend: {
+      backgroundColor: ["active"],
+    },
+  },
   theme: {
     screens: {
       xs: "350px",
