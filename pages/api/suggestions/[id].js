@@ -1,6 +1,7 @@
 import connect from "../../../db/db";
 import Suggestion from "../../../models/Suggestion";
 import Comment from "../../../models/Comment";
+import Likes from "../../../models/Likes";
 
 export default async function handler(req, res) {
   connect();
@@ -9,6 +10,9 @@ export default async function handler(req, res) {
       const data = await Suggestion.findOne({ _id: req.query.id }).populate({
         path: "comment",
         model: Comment,
+      }).populate({
+        path:'likes',
+        model:Likes
       });
       if (!data) {
         return res.status(400).json({

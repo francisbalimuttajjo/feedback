@@ -109,7 +109,7 @@ function MainBar(props) {
           category={item.category}
           description={item.suggestion}
           feedback={item.title}
-          upvotes={item.upvotes}
+          upvotes={item.likes.length}
           name={item.name}
           createDate={item.createdAt}
           src={item.image}

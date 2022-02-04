@@ -1,6 +1,5 @@
 import mongoose from "mongoose";
 
-
 const suggestionModel = new mongoose.Schema(
   {
     title: {
@@ -9,13 +8,16 @@ const suggestionModel = new mongoose.Schema(
     },
     name: {
       type: String,
-      
     },
-    image:{
-      type:String
+    image: {
+      type: String,
     },
-    email:{
-      type:String,
+    status: {
+      type: String,
+      default: "planned",
+    },
+    email: {
+      type: String,
     },
 
     category: {
@@ -29,11 +31,10 @@ const suggestionModel = new mongoose.Schema(
     upvotes: {
       type: Number,
     },
-    createdAt:{
-      type:String,
+    createdAt: {
+      type: String,
       // default:Date.now()
-    }
-   
+    },
   },
   {
     toJSON: { virtuals: true },
@@ -45,7 +46,11 @@ suggestionModel.virtual("comment", {
   foreignField: "suggestion",
   localField: "_id",
 });
-
+suggestionModel.virtual("likes", {
+  ref: "Likes",
+  foreignField: "suggestion",
+  localField: "_id",
+});
 
 export default mongoose.models["Suggestion"] ||
   mongoose.model("Suggestion", suggestionModel);

@@ -1,18 +1,24 @@
 import connect from "../../db/db";
-import Suggestion from "../../models/Suggestion";
-import Comment from "../../models/Comment";
 import Likes from "../../models/Likes";
 
 export default async function handler(req, res) {
   connect();
-  if (req.method === "GET") {
+  if (req.method === "POST") {
     try {
-      const data = await Suggestion.find()
-        .populate({ path: "comment", model: Comment })
-        .populate({
-          path: "likes",
-          model: Likes,
+      const { user, suggestion } = req.body;
+      const oldLike = await Likes.findOne({ user, suggestion });
+      if (oldLike) {
+        return res.status(400).json({
+          status: "fail",
+          data: "You can only vote a suggestion once",
         });
+      }
+
+      const data = await Likes.create({
+        user,
+        suggestion,
+      });
+
       return res.status(200).json({
         status: "success",
         data,

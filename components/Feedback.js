@@ -3,12 +3,14 @@ import { useRouter } from "next/router";
 import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
 import { IconButton } from "@mui/material";
 import Suggestion from "./Suggestion";
+
 import AddComment from "./AddComment";
 import MainComment from "./Comments";
 
 
 
 function Comments(props) {
+ 
   return (
     <div className="    flex rounded-md     flex-col bg-white     w-11/12  m-auto mt-4 px-2      sm:ml-16   ">
       <div>
@@ -71,6 +73,7 @@ function Feedback(props) {
         src={props.src}
         name={props.name}
         createDate={props.createDate}
+        id={props.id}
       />
 
       <Comments comments={props.comments} />

@@ -13,7 +13,7 @@ function FeedbackComponent(props) {
     <>
     <Head title={suggestion.title}/>
       <Feedback
-        upvotes={suggestion.upvotes}
+        upvotes={suggestion.likes.length}
         description={suggestion.suggestion}
         category={suggestion.category}
         comments={suggestion.comment}
@@ -33,7 +33,7 @@ export default FeedbackComponent;
 
 export async function getServerSideProps(req) {
   const res = await axios.get(
-    //const `http://localhost:3000/api/suggestions/${req.query.id}`
+   // `http://localhost:3000/api/suggestions/${req.query.id}`
     `https://feedbackbafra.vercel.app/api/suggestions/${req.query.id}`
   );
   return {

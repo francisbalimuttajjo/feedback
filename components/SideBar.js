@@ -6,15 +6,17 @@ import MenuIcon from "@mui/icons-material/Menu";
 import { categories } from "../data";
 //
 const planned = ["Planned", "In Progress", "Fixed"];
-const no = [2, 8, 9];
+
 
 
 
 function SideBar(props) {
 
+
   return (
     <div className="w-full 
     sm:flex sm:flex-row sm:ml-16 sm:mb-4 sm:mt-4 md:flex-col md:w-4/12 md:mt-32 md:sticky md:h-screen md:top-2 ">
+   
       <div
         className="w-full h-16 bg-gradient-to-r from-violet-500 to-fuchsia-500 text-white flex justify-around
        sm:w-3/12 sm:h-32 sm:rounded-lg md:w-full
@@ -25,7 +27,7 @@ function SideBar(props) {
           <p className="-ml-6 opacity-70 md:-m1-8"> Feedback Forum</p>
         </div>
         <div className="my-auto sm:hidden -right-10 relative  md:hidden lg:hidden ">
-          <IconButton sx={{ color: "white" }}>
+          <IconButton sx={{ color: "white" }} >
             <MenuIcon />
           </IconButton>
         </div>
@@ -57,8 +59,8 @@ function SideBar(props) {
           </div>
           <div className="ml-9 md:ml-20">
             <ul className="list-none ">
-              {no.map((no) => (
-                <li key={no}>{no}</li>
+              {props.no.map((no) => (
+                <li key={no.index}>{no.number}</li>
               ))}
             </ul>
           </div>

@@ -16,7 +16,7 @@ export default function RoadMap(props) {
   return (
     <div>
       <Head title="roadmap" />
-      <div className="text-white bg-slate-700 py-3 flex">
+      <div className="text-white bg-slate-700 py-3 flex sm:rounded-md sm:mt-8  sm:mx-auto sm:w-7/12">
         <div className="flex grow flex-col ">
           <div className="flex">
             <IconButton onClick={() => router.back()}>
@@ -36,7 +36,7 @@ export default function RoadMap(props) {
           + add Feedback
         </button>
       </div>
-      <nav className="mr-2 border-b-2 border-purple-400 p-4 h-16 ">
+      <nav className="mr-2 border-b-2 border-purple-400 p-4 h-16 sm:w-6/12 sm:mx-auto ">
         <ul className="flex justify-between">
           <li
             className="
@@ -61,6 +61,7 @@ export default function RoadMap(props) {
       </nav>
       {active === "Planned" && (
         <Card
+          planned
           data={planned}
           title={`Planned ${planned.length}`}
           description=" Ideas Optimised For Research"

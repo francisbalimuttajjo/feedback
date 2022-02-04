@@ -3,14 +3,40 @@ import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
 import { IconButton, Avatar } from "@mui/material";
 import { useRouter } from "next/router";
 import Image from "next/image";
+import axios from "axios";
+import Notification from "./Notification";
+import { useSession } from "next-auth/react";
 import CommentIcon from "@mui/icons-material/Comment";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 
 function Suggestion(props) {
+  const session = useSession();
   const router = useRouter();
+  const [error, setError] = React.useState(null);
+  const [message, setMessage] = React.useState(null);
+  const handleLike = () => {
+    axios
+      .post("/api/likes", {
+        user: session.data.user.email,
+        suggestion: props.id,
+      })
+      .then((res) => {
+        if (res.data.status === "success") {
+          setMessage("upvote Saved");
+          setTimeout(() => window.location.reload(), 4000);
+        }
+      })
+      .catch((err) => {
+        setError(err.response.data.data);
+      });
+  };
   return (
-    <div className="bg-white  mx-3 md:ml-20    
-    rounded-lg text-black mt-4 py-3 sm:pl-6 sm:py-3   sm:ml-16    ">
+    <div
+      className="bg-white  mx-3 md:ml-20    
+    rounded-lg text-black mt-4 py-3 sm:pl-6 sm:py-3   sm:ml-16    "
+    >
+      {error && <Notification severity="error" message={error} />}
+      {message && <Notification severity="success" message={message} />}
       <div className="min-w-full sm:min-w-10/12">
         <div className="flex flex-row  px-3">
           <div
@@ -50,9 +76,9 @@ function Suggestion(props) {
             <h5 className="bg-gray-200 text-violet-900 font-semibold sm:ml-24 px-2 py-2 h-10 mt-2 mr-4  rounded-md opacity-70 ">
               {props.category}
             </h5>
-            <IconButton>
+            <IconButton onClick={handleLike}>
               <Image
-              className='opacity-80'
+                className="opacity-80"
                 height="36px"
                 width="36px"
                 alt="upvote "
