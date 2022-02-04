@@ -6,6 +6,7 @@ import Image from "next/image";
 import axios from "axios";
 import Notification from "./Notification";
 import { useSession } from "next-auth/react";
+import Tooltip from "@mui/material/Tooltip";
 import CommentIcon from "@mui/icons-material/Comment";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 
@@ -77,15 +78,17 @@ function Suggestion(props) {
               {props.category}
             </h5>
             {session.data && (
-              <IconButton onClick={handleLike}>
-                <Image
-                  className="opacity-80"
-                  height="36px"
-                  width="36px"
-                  alt="upvote "
-                  src="/upvote.jpg"
-                />
-              </IconButton>
+              <Tooltip title="click to upvote">
+                <IconButton onClick={handleLike}>
+                  <Image
+                    className="opacity-80"
+                    height="36px"
+                    width="36px"
+                    alt="upvote "
+                    src="/upvote.jpg"
+                  />
+                </IconButton>
+              </Tooltip>
             )}
           </div>
           <div className="flex mt-6 px-2">
