@@ -2,27 +2,33 @@ import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
 import { IconButton } from "@mui/material";
 import { useRouter } from "next/router";
 import Head from "../components/Head";
-import {useState} from 'react'
+import { useState } from "react";
+import axios from "axios";
 import Card from "../components/Card";
-export default function RoadMap() {
+export default function RoadMap(props) {
   const router = useRouter();
-  const[active,setActive]=useState('Planned')
+  const [active, setActive] = useState("Planned");
+
+  const planned = props.data.data.filter((el) => el.status === "planned");
+  const progress = props.data.data.filter((el) => el.status === "progress");
+  const fixed = props.data.data.filter((el) => el.status === "fixed");
+
   return (
     <div>
       <Head title="roadmap" />
       <div className="text-white bg-slate-700 py-3 flex">
         <div className="flex grow flex-col ">
-          <div className='flex'>
-            <IconButton onClick={() =>router.back()}>
+          <div className="flex">
+            <IconButton onClick={() => router.back()}>
               <ArrowBackIosNewIcon
                 sx={{ fontSize: "14px", marginTop: "10px", color: "white" }}
               />
             </IconButton>
             <p className="mt-3 opacity-80 font-bold">Go Back</p>
           </div>
-          <p className='ml-6 mb-2 font-bold'>Roadmap</p>
+          <p className="ml-6 mb-2 font-bold">Roadmap</p>
         </div>
-        
+
         <button
           onClick={() => router.replace("/add")}
           className=" bg-fuchsia-500 font-bold h-8 mr-2 px-1 mt-2 hover:bg-blue-500 rounded-md sm:mt-6 "
@@ -30,19 +36,61 @@ export default function RoadMap() {
           + add Feedback
         </button>
       </div>
-      <nav className='mr-2 border-b-2 border-purple-400 p-4 h-16 ' >
-          <ul className='flex justify-between'>
-              <li className='
-               pb-5  w-1/4 hover:border-purple-500  hover:border-b-4 active:border-b-6 active:border-purple-500  hover:opacity-90   opacity-50  hover:cursor-pointer font-bold' 
-               onClick={()=>setActive('Planned')}>Planned(2) </li>
-              <li className='pb-5  w-1/4 hover:border-purple-500  hover:border-b-4 active:border-b-4 active:border-purple-500  hover:opacity-90   opacity-50  hover:cursor-pointer font-bold' onClick={()=>setActive('Progress')}>Progress(4) </li>
-              <li className='pb-5  w-1/4 hover:border-purple-500  hover:border-b-4 active:border-b-4 active:border-purple-500  hover:opacity-90   opacity-50  hover:cursor-pointer font-bold' onClick={()=>setActive('Live')}>Live(6) </li>
-          </ul>
-         
+      <nav className="mr-2 border-b-2 border-purple-400 p-4 h-16 ">
+        <ul className="flex justify-between">
+          <li
+            className="
+               pb-5  w-1/4 hover:border-purple-500  hover:border-b-4 active:border-b-6 active:border-purple-500  hover:opacity-90   opacity-50  hover:cursor-pointer font-bold"
+            onClick={() => setActive("Planned")}
+          >
+            Planned({planned.length}){" "}
+          </li>
+          <li
+            className="pb-5  w-1/4 hover:border-purple-500  hover:border-b-4 active:border-b-4 active:border-purple-500  hover:opacity-90   opacity-50  hover:cursor-pointer font-bold"
+            onClick={() => setActive("Progress")}
+          >
+            Progress({progress.length}){" "}
+          </li>
+          <li
+            className="pb-5  w-1/4 hover:border-purple-500  hover:border-b-4 active:border-b-4 active:border-purple-500  hover:opacity-90   opacity-50  hover:cursor-pointer font-bold"
+            onClick={() => setActive("Live")}
+          >
+            Live({fixed.length}){" "}
+          </li>
+        </ul>
       </nav>
-      {active==='Planned' && <Card title='Planned (2)' />}
-      {active==='Progress' && <Card title='In-Progress(0)' />}
-      {active==='Live' && <Card title='Live(3)' />}
+      {active === "Planned" && (
+        <Card
+          data={planned}
+          title={`Planned ${planned.length}`}
+          description=" Ideas Optimised For Research"
+        />
+      )}
+      {active === "Progress" && (
+        <Card
+          data={progress}
+          title={`In-Progress ${progress.length}`}
+          description="currently being developed"
+        />
+      )}
+      {active === "Live" && (
+        <Card
+          data={fixed}
+          title={`Live ${fixed.length}`}
+          description="released features"
+        />
+      )}
     </div>
   );
+}
+
+export async function getServerSideProps(context) {
+  //const res = await axios.get("http://localhost:3000/api/getSuggestions");
+  const res = await axios.get(
+    "https://feedbackbafra.vercel.app/api/getSuggestions"
+  );
+
+  return {
+    props: { data: res.data },
+  };
 }
