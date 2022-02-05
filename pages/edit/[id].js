@@ -151,13 +151,13 @@ const Edit = (props) => {
             </div>
           </form>
           <button
-            className="w-10/12 ml-6 mb-4 rounded-md  hover:bg-blue-500 text-white font-bold my-2 py-2 bg-fuchsia-500 bg-violet-900"
+            className="btn bg-fuchsia-500 bg-violet-900"
             onClick={() => router.replace("/")}
           >
             Cancel
           </button>
           <button
-            className="w-10/12 ml-6 mb-4 rounded-md  hover:bg-blue-500 text-white font-bold my-2 py-2 bg-red-500 bg-violet-900"
+            className="btn bg-red-500 bg-violet-900"
             onClick={deleteHandler}
           >
             {!deleting && " Delete"}

@@ -46,13 +46,13 @@ export default function RoadMap(props) {
             Planned({planned.length}){" "}
           </li>
           <li
-            className="pb-5  w-1/4 hover:border-purple-500  hover:border-b-4 active:border-b-4 active:border-purple-500  hover:opacity-90   opacity-50  hover:cursor-pointer font-bold"
+            className="btn-roadMap"
             onClick={() => setActive("Progress")}
           >
             Progress({progress.length}){" "}
           </li>
           <li
-            className="pb-5  w-1/4 hover:border-purple-500  hover:border-b-4 active:border-b-4 active:border-purple-500  hover:opacity-90   opacity-50  hover:cursor-pointer font-bold"
+            className="btn-roadMap"
             onClick={() => setActive("Live")}
           >
             Live({fixed.length}){" "}

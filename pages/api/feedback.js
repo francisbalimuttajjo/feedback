@@ -37,8 +37,7 @@ export default async function handler(req, res) {
         name,
         createdAt:date,
         email,
-        upvotes: 0,
-        comments: 0,
+        
       });
 
       return res.status(200).json({

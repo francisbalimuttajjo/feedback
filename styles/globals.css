@@ -1,3 +1,45 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.suggestionCategory {
+  @apply bg-gray-200 text-violet-900 font-semibold sm:ml-24 px-2 py-2 h-10 mt-2 mr-4  rounded-md opacity-70;
+}
+.suggestionUpvote {
+  @apply flex bg-gray-200 h-10 w-12 sm:hidden   flex-col m-2   rounded-md p-2 justify-center;
+}
+.upvote-sm {
+  @apply hidden sm:block flex bg-gray-200 h-12 w-12 sm:w-10 sm:p-1
+    flex-col m-2 -ml-4 rounded-md p-2 justify-center;
+}
+.suggestion-container {
+  @apply bg-white  mx-3 md:ml-20    
+    rounded-lg text-black mt-4 py-3 sm:pl-6 sm:py-3   sm:ml-16;
+}
+.suggestion-heading {
+  @apply ml-2  sm:ml-14   grow  font-semibold sm:font-bold opacity-90 capitalize;
+}
+.sidebar-subContainer {
+  @apply w-full h-16 bg-gradient-to-r from-violet-500 to-fuchsia-500 text-white flex justify-around    sm:w-3/12 sm:h-32 sm:rounded-lg md:w-full;
+}
+.sidebar-mainContainer {
+  @apply w-full     sm:flex sm:flex-row sm:ml-16 sm:mb-4 sm:mt-4 md:flex-col md:w-4/12 md:mt-32 md:sticky md:h-screen md:top-2;
+}
+.sidebar-roadmap {
+  @apply hidden sm:block md:block rounded-lg  bg-white  ml-6 w-3/12  h-32 md:py-4 md:h-36  md:w-full md:ml-0 md:mt-3;
+}
+.sidebar-btnContainer {
+  @apply hidden  overflow-hidden sm:block  md:block rounded-lg ml-6    bg-white w-3/12  h-32 md:w-full md:ml-0 md:mt-3 md:overflow-hidden;
+}
+.mainbar-subContainer {
+  @apply bg-slate-900 sticky top-0    flex justify-around w-full h-14 sm:h-20 sm:rounded-md sm:w-11/12 sm:ml-16 md:mt-12;
+}
+.add-heading{
+    @apply  flex justify-center  -mt-7 ml-8  bg-gradient-to-r text-white from-violet-500 to-fuchsia-500 rounded-full h-10 w-10
+}
+.btn{
+    @apply w-10/12 ml-6 mb-4 rounded-md  hover:bg-blue-500 text-white font-bold my-2 py-2
+}
+.btn-roadMap{
+    @apply pb-5  w-1/4 hover:border-purple-500  hover:border-b-4 active:border-b-4 active:border-purple-500  hover:opacity-90   opacity-50  hover:cursor-pointer font-bold
+}

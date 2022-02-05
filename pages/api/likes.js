@@ -10,7 +10,7 @@ export default async function handler(req, res) {
       if (oldLike) {
         return res.status(400).json({
           status: "fail",
-          data: "You can only vote a suggestion once",
+          data: "You can only upvote a feedback  once",
         });
       }
 

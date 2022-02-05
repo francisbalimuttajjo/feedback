@@ -40,9 +40,7 @@ function MainBar(props) {
   return (
     <div className="w-full text-white  ">
       <div
-        className="bg-slate-900 sticky top-0
-          flex justify-around w-full h-14 sm:h-20 sm:rounded-md sm:w-11/12 sm:ml-16
-       md:mt-12 
+        className="mainbar-subContainer
       "
       >
         <div className="hidden sm:block mt-2">

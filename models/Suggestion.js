@@ -28,12 +28,10 @@ const suggestionModel = new mongoose.Schema(
       type: String,
       required: [true, "enter suggestion"],
     },
-    upvotes: {
-      type: Number,
-    },
+   
     createdAt: {
       type: String,
-      // default:Date.now()
+      
     },
   },
   {

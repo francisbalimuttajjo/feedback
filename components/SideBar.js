@@ -93,12 +93,12 @@ const RoadMap = (props) => {
 //roadmap
 
 function SideBar(props) {
+  const session = useSession();
   const [open, setOpen] = React.useState(false);
   const handleClose = () => setOpen(false);
   return (
     <div
-      className="w-full 
-    sm:flex sm:flex-row sm:ml-16 sm:mb-4 sm:mt-4 md:flex-col md:w-4/12 md:mt-32 md:sticky md:h-screen md:top-2 "
+      className="sidebar-mainContainer "
     >
       {open && (
         <div className="sm:hidden">
@@ -111,22 +111,23 @@ function SideBar(props) {
         </div>
       )}
       <div
-        className="w-full h-16 bg-gradient-to-r from-violet-500 to-fuchsia-500 text-white flex justify-around
-       sm:w-3/12 sm:h-32 sm:rounded-lg md:w-full
+        className="sidebar-subContainer
       "
       >
         <div>
           <div className="hidden  sm:block">
-            <Tooltip
-              disableFocusListener
-              arrow
-              placement="right"
-              title="LogOut"
-            >
-              <IconButton onClick={() => signOut()}>
-                <LogoutIcon sx={{ marginLeft: "5px", color: "white" }} />
-              </IconButton>
-            </Tooltip>
+            {session.data && (
+              <Tooltip
+                disableFocusListener
+                arrow
+                placement="right"
+                title="LogOut"
+              >
+                <IconButton onClick={() => signOut()}>
+                  <LogoutIcon sx={{ marginLeft: "5px", color: "white" }} />
+                </IconButton>
+              </Tooltip>
+            )}
           </div>
 
           <p className="-ml-6 font-semibold text-2xl sm:mt-6 md:-m1-8">
@@ -141,7 +142,7 @@ function SideBar(props) {
         </div>
       </div>
 
-      <div className="hidden  overflow-hidden sm:block  md:block rounded-lg ml-6 bg-white w-3/12  h-32 md:w-full md:ml-0 md:mt-3 md:overflow-hidden">
+      <div className="sidebar-btnContainer">
         {categories.map((item) => (
           <StyledButton
             onClick={() => props.handleFilter(item)}
@@ -152,7 +153,8 @@ function SideBar(props) {
           </StyledButton>
         ))}
       </div>
-      <div className="hidden sm:block md:block rounded-lg  bg-white  ml-6 w-3/12  h-32 md:py-4 md:h-36  md:w-full md:ml-0 md:mt-3">
+      <div className=" sidebar-roadmap
+     ">
         <RoadMap no={props.no} />
       </div>
     </div>
