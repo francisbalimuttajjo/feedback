@@ -46,10 +46,10 @@ const DrawerComponent = (props) => {
           {session.data && (
             <button
               onClick={() => signOut()}
-              className="hover:bg-blue-300 rounded-md ml-10 p-2 font-bold text-white bg-blue-900"
+              className="hover:bg-blue-300 w-3/4 rounded-md ml-7 p-2 font-bold text-white bg-blue-900"
             >
-              signOut
-              <LogoutIcon sx={{ marginLeft: "5px" }} />
+              SignOut
+              <LogoutIcon sx={{ marginLeft: "10px",color:'red' }} />
             </button>
           )}
         </List>
