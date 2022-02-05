@@ -3,7 +3,6 @@ import { useRouter } from "next/router";
 import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
 import { IconButton } from "@mui/material";
 import Suggestion from "./Suggestion";
-
 import AddComment from "./AddComment";
 import MainComment from "./Comments";
 
@@ -26,7 +25,7 @@ function Comments(props) {
           key={comment._id}
           src={comment.image}
           name={comment.name}
-          alt={comment.alt}
+          alt={comment.name}
           username={comment.email}
           replies={comment.replies}
           reply={comment.comment}

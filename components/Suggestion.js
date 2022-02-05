@@ -78,10 +78,10 @@ function Suggestion(props) {
               {props.category}
             </h5>
             {session.data && (
-              <Tooltip title="click to upvote">
+              <Tooltip disableFocusListener arrow placement="top" title="click to upvote">
                 <IconButton onClick={handleLike}>
                   <Image
-                    className="opacity-80"
+                    className="opacity-60"
                     height="36px"
                     width="36px"
                     alt="upvote "

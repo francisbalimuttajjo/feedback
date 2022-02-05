@@ -1,5 +1,5 @@
 import { styled } from "@mui/material/styles";
-import { Typography, Box, Button } from "@mui/material";
+import {  Button } from "@mui/material";
 export const StyledButton = styled(Button)`
   background-color: #edeff2;
   color:#6696de;
