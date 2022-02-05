@@ -9,12 +9,14 @@ import { signOut } from "next-auth/react";
 import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
 import LogoutIcon from "@mui/icons-material/Logout";
+import {useSession} from "next-auth/react"
 import { categories } from "../data";
 //
 const planned = ["Planned", "In Progress", "Fixed"];
 
 //drawer
 const DrawerComponent = (props) => {
+  const session=useSession()
   return (
     <div className="sm:hidden">
       <Drawer
@@ -23,7 +25,8 @@ const DrawerComponent = (props) => {
         open={props.open}
         onClose={props.close}
       >
-        <List sx={{ backgroundColor: "#e6e2da", minHeight: "100vh" }}>
+        <List sx={{ backgroundColor: "#e6e2da"
+        , minHeight: "100vh" }}>
           <IconButton onClick={()=>props.close()}>
             <CloseIcon sx={{ margin:'2px',color:'red'}} />
           </IconButton>
@@ -41,14 +44,14 @@ const DrawerComponent = (props) => {
           <div className="w-52 mx-5 p-4 rounded-md my-5 bg-white">
             <RoadMap no={props.no} />
           </div>
-
+           {session.data &&
           <button
             onClick={() => signOut()}
             className="hover:bg-blue-300 rounded-md ml-10 p-2 font-bold text-white bg-blue-900"
           >
             Logout
             <LogoutIcon sx={{ marginLeft: "5px" }} />
-          </button>
+          </button> }
         </List>
       </Drawer>
     </div>
