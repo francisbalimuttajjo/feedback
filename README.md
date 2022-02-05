@@ -32,3 +32,7 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+
+The feedback app, users can view,create,delete and upvote feedback/reviews/suggestions. However for creating,upvoting and deleting the user has to sign in with their google account. users can upvote a feedback once.
+Technologies used: Next js, Material ui,Tailwind css, MongoDb
+
