@@ -93,6 +93,7 @@ const Comments = (props) => {
             </button>
             <button 
             onClick={handleReply}
+            disabled={loading}
             className="bg-blue-600 hover:bg-purple-500  mb-2 mr-10 p-2 rounded-md text-white h-10">
              {!loading && 'Post Reply'}
              {loading && 'Replying....'}

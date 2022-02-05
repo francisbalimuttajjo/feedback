@@ -2,16 +2,15 @@ import React from "react";
 import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
 import { useRouter } from "next/router";
 import { Select, CircularProgress, MenuItem, IconButton } from "@mui/material";
-import axios from 'axios'
+import axios from "axios";
 import { categories } from "../data";
 import { useSession, getSession } from "next-auth/react";
-import Notification from '../components/Notification'
-import Head from '../components/Head'
-
+import Notification from "../components/Notification";
+import Head from "../components/Head";
 
 const Add = () => {
   const router = useRouter();
-  const session =useSession()
+  const session = useSession();
   const [category, setCategory] = React.useState("");
   const [title, setTitle] = React.useState("");
   const [text, setText] = React.useState("");
@@ -24,12 +23,11 @@ const Add = () => {
     e.preventDefault();
 
     if (!title || !category || !text) {
-     setError(' Please fill all fields')
+      setError(" Please fill all fields");
       return;
     }
     try {
       setLoading(true);
-     
 
       const res = await axios.post("/api/feedback", {
         title,
@@ -44,21 +42,21 @@ const Add = () => {
         setLoading(false);
         setTitle("");
         setText("");
-        setMessage('feedback added')
-        setTimeout(() => router.replace('/'), 3000);
+        setMessage("feedback added");
+        setTimeout(() => router.replace("/"), 3000);
       }
     } catch (err) {
       setLoading(false);
-            setError('Try again Later')
+      setError("Try again Later");
     }
   };
 
   return (
     <div className="flex flex-col mx-auto sm:w-9/12 md:w-6/12">
-      <Head title='new feedback'/>
-     {error &&  <Notification severity='error' message={error} />}
-     {message &&  <Notification severity='success' message={message} />}
-      
+      <Head title="new feedback" />
+      {error && <Notification severity="error" message={error} />}
+      {message && <Notification severity="success" message={message} />}
+
       <div className="flex mt-6">
         <IconButton onClick={() => router.back()}>
           <ArrowBackIosNewIcon
@@ -107,7 +105,7 @@ const Add = () => {
               inputRef={selectRef}
             >
               <MenuItem value="">
-                <em className='text-blue-600'>Choose Category</em>
+                <em className="text-blue-600">Choose Category</em>
               </MenuItem>
               {categories.slice(1).map((item) => (
                 <MenuItem key={item} value={item}>
@@ -133,6 +131,7 @@ const Add = () => {
 
             <div className="w-10/12  mt-4 ml-6">
               <button
+                disabled={loading}
                 className="w-full font-bold hover:bg-blue-500 text-white rounded-md my-2 py-2 bg-fuchsia-700  "
                 type="submit"
               >
@@ -142,6 +141,7 @@ const Add = () => {
             </div>
           </form>
           <button
+            disabled={loading}
             className="w-10/12 ml-6 mb-4 rounded-md  hover:bg-blue-500 text-white font-bold my-2 py-2 bg-fuchsia-500 bg-violet-900"
             onClick={() => router.replace("/")}
           >

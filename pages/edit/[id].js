@@ -144,6 +144,7 @@ const Edit = (props) => {
               <button
                 className="w-full font-bold hover:bg-blue-500 text-white rounded-md my-2 py-2 bg-fuchsia-700  "
                 type="submit"
+                disabled={loading}
               >
                 {!loading && "Edit Feedback"}
                 {loading && <CircularProgress color="inherit" />}
@@ -151,12 +152,14 @@ const Edit = (props) => {
             </div>
           </form>
           <button
+            disabled={loading}
             className="btn bg-fuchsia-500 bg-violet-900"
             onClick={() => router.replace("/")}
           >
             Cancel
           </button>
           <button
+            disabled={loading}
             className="btn bg-red-500 bg-violet-900"
             onClick={deleteHandler}
           >

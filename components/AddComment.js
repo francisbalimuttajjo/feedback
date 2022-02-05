@@ -54,6 +54,7 @@ function AddComment(props) {
             </p>
 
             <button
+            disabled={loading}
               className=" bg-blue-900 text-white
              h-8 px-2 mt-2 hover:bg-blue-400 rounded-md  "
               onClick={() => addComment(props.id)}
