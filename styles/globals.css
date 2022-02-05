@@ -43,3 +43,6 @@
 .btn-roadMap{
     @apply pb-5  w-1/4 hover:border-purple-500  hover:border-b-4 active:border-b-4 active:border-purple-500  hover:opacity-90   opacity-50  hover:cursor-pointer font-bold
 }
+.editIcon-container{
+  @apply flex justify-center  -mt-7 ml-8  bg-gradient-to-r text-white from-violet-500 to-fuchsia-500 rounded-full h-10 w-10
+}

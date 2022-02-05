@@ -79,7 +79,7 @@ const Edit = (props) => {
         <p className="text-sm mt-1 font-bold">Go Back</p>
       </div>
       <div className="bg-white rounded-md w-11/12 mx-auto mt-16">
-        <div className=" flex justify-center  -mt-7 ml-8  bg-gradient-to-r text-white from-violet-500 to-fuchsia-500 rounded-full h-10 w-10">
+        <div className="editIcon-container ">
           <EditIcon sx={{ marginTop: 1 }} />
         </div>
         <div>
