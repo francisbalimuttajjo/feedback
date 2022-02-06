@@ -14,8 +14,10 @@ function Suggestion(props) {
   const session = useSession();
   const router = useRouter();
   const [error, setError] = React.useState(null);
+  const [loading, setLoading] = React.useState(false);
   const [message, setMessage] = React.useState(null);
   const handleLike = () => {
+    setLoading(true)
     axios
       .post("/api/likes", {
         user: session.data.user.email,
@@ -23,12 +25,16 @@ function Suggestion(props) {
       })
       .then((res) => {
         if (res.data.status === "success") {
+          setLoading(false)
           setMessage("upvote Saved");
           setTimeout(() => window.location.reload(), 4000);
         }
       })
       .catch((err) => {
+        setLoading(false)
         setError(err.response.data.data);
+       
+
       });
   };
   return (
@@ -77,7 +83,9 @@ function Suggestion(props) {
             </h5>
             {session.data && (
               <Tooltip disableFocusListener arrow placement="top" title="click to upvote">
-                <IconButton onClick={handleLike}>
+                <IconButton 
+                disabled={loading}
+                onClick={handleLike}>
                   <Image
                     className="opacity-60"
                     height="36px"
