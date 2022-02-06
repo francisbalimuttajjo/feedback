@@ -11,7 +11,7 @@ export default function Home(props) {
   const progress = props.data.data.filter((el) => el.status === "progress");
   const fixed = props.data.data.filter((el) => el.status === "fixed");
 
-  const nos = [
+  const numbers = [
     { number: planned.length, index: 0 },
     { number: progress.length, index: 1 },
     { number: fixed.length, index: 2 },
@@ -48,7 +48,7 @@ export default function Home(props) {
   return (
     <div className="md:flex md:w-4/5 md:mx-auto">
       <Head title="home" />
-      <Side handleFilter={handleFilter} no={nos} />
+      <Side handleFilter={handleFilter} number={numbers} />
       <Main data={data} />
     </div>
   );

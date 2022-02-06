@@ -5,5 +5,5 @@ const sortingCategories = [
     "Most Comments",
     "Least Comments",
   ];
-
-export { categories,sortingCategories}
+  const planned = ["Planned", "In Progress", "Fixed"];
+export { categories,sortingCategories,planned}

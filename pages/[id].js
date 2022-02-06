@@ -33,9 +33,12 @@ export default FeedbackComponent;
 
 export async function getServerSideProps(req) {
   const res = await axios.get(
-   // `http://localhost:3000/api/suggestions/${req.query.id}`
+   //`http://localhost:3000/api/suggestions/${req.query.id}`
     `https://feedbackbafra.vercel.app/api/suggestions/${req.query.id}`
+
   );
+  
+ 
   return {
     props: { data: res.data.data },
   };

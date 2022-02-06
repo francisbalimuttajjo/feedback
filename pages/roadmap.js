@@ -5,10 +5,10 @@ import Head from "../components/Head";
 import { useState } from "react";
 import axios from "axios";
 import Card from "../components/Card";
+
 export default function RoadMap(props) {
   const router = useRouter();
   const [active, setActive] = useState("Planned");
-
   const planned = props.data.data.filter((el) => el.status === "planned");
   const progress = props.data.data.filter((el) => el.status === "progress");
   const fixed = props.data.data.filter((el) => el.status === "fixed");

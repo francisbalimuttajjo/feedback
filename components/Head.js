@@ -7,7 +7,7 @@ function HeadComponent(props) {
     <Head>
       <title>{props.title}</title>
       <meta name="feedbackappbafra" content="feedback app " />
-      <link rel="icon" href="/emoji.jpg" />
+      <link rel="icon" href="/like.jpg" />
     </Head>
   );
 }

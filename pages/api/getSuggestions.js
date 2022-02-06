@@ -13,10 +13,18 @@ export default async function handler(req, res) {
           path: "likes",
           model: Likes,
         });
-      return res.status(200).json({
-        status: "success",
-        data,
-      });
+
+      if (!data) {
+        return res.status(404).json({
+          status: "fail",
+          msg: "no data currently ",
+        });
+      } else {
+        return res.status(200).json({
+          status: "success",
+          data,
+        });
+      }
     } catch (err) {
       return res.status(400).json({
         status: "fail",

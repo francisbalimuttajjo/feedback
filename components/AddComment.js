@@ -9,6 +9,8 @@ function AddComment(props) {
   const [message, setMessage] = React.useState(null);
   const [loading, setLoading] = React.useState(false);
   const session = useSession();
+
+  
   function addComment(suggestion) {
     if (!text.length) {
       setError("no empty fields");

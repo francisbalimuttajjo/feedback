@@ -17,7 +17,7 @@ function Suggestion(props) {
   const [loading, setLoading] = React.useState(false);
   const [message, setMessage] = React.useState(null);
   const handleLike = () => {
-    setLoading(true)
+    setLoading(true);
     axios
       .post("/api/likes", {
         user: session.data.user.email,
@@ -25,29 +25,23 @@ function Suggestion(props) {
       })
       .then((res) => {
         if (res.data.status === "success") {
-          setLoading(false)
+          setLoading(false);
           setMessage("upvote Saved");
           setTimeout(() => window.location.reload(), 4000);
         }
       })
       .catch((err) => {
-        setLoading(false)
+        setLoading(false);
         setError(err.response.data.data);
-       
-
       });
   };
   return (
-    <div
-      className="suggestion-container    "
-    >
+    <div className="suggestion-container ">
       {error && <Notification severity="error" message={error} />}
       {message && <Notification severity="success" message={message} />}
       <div className="min-w-full sm:min-w-10/12">
         <div className="flex flex-row  px-3">
-          <div
-            className=" upvote-sm opacity-500 "
-          >
+          <div className=" upvote-sm opacity-500 ">
             <KeyboardArrowUpIcon />
             <p className="  ml-2  -mt-2">{props.upvotes}</p>
           </div>
@@ -78,32 +72,41 @@ function Suggestion(props) {
               <KeyboardArrowUpIcon />
               <p className="self-start  ml-2  -mt-2">{props.upvotes}</p>
             </div>
-            <h5 className="suggestionCategory ">
-              {props.category}
-            </h5>
+            <h5 className="suggestionCategory ">{props.category}</h5>
             {session.data && (
-              <Tooltip disableFocusListener arrow placement="top" title="click to upvote">
-                <IconButton 
-                disabled={loading}
-                onClick={handleLike}>
+              <Tooltip
+                disableFocusListener
+                arrow
+                placement="top"
+                title="click to upvote"
+              >
+                <IconButton
+                sx={{marginTop:'-10px', marginLeft:'-15px'}}
+                 disabled={loading} onClick={handleLike}>
                   <Image
                     className="opacity-60"
-                    height="36px"
-                    width="36px"
+                    height="60px"
+                    width="60px"
                     alt="upvote "
-                    src="/upvote.jpg"
+                    src="/like.jpg"
                   />
                 </IconButton>
               </Tooltip>
             )}
           </div>
           <div className="flex mt-6 px-2">
-            <CommentIcon
-              sx={{
-                color: "#6696de",
-              }}
-            />
-            <h6 className="mt-1 opacity-60">{props.length}</h6>
+            <IconButton
+          onClick={() => router.push(`/${props.id}`)}
+            >
+              <CommentIcon
+                sx={{
+                  color: "#6696de",
+                }}
+              />
+              <span className="mt-1 opacity-80 text-base">{props.length}</span>
+            </IconButton>
+
+            
           </div>
         </div>
       </div>

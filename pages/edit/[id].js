@@ -5,7 +5,6 @@ import { Select, CircularProgress, MenuItem, IconButton } from "@mui/material";
 import axios from "axios";
 import { categories } from "../../data";
 import EditIcon from "@mui/icons-material/Edit";
-import { useSession, getSession } from "next-auth/react";
 import Notification from "../../components/Notification";
 import Head from "../../components/Head";
 
@@ -31,7 +30,7 @@ const Edit = (props) => {
       })
       .catch((err) => {
         setDeleting(false);
-        console.log(err);
+       
       });
   };
 
@@ -52,7 +51,7 @@ const Edit = (props) => {
           suggestion: text,
         }
       );
-      console.log(res);
+     
       if (res.data.status === "success") {
         setLoading(false);
         setMessage("update successfull");
@@ -182,19 +181,6 @@ export async function getServerSideProps(req) {
   };
 }
 
-// export async function getServerSideProps(context) {
-//   const session = await getSession({ req: context.req });
-//   if (!session) {
-//     return {
-//       redirect: {
-//         destination: "/",
-//         permanent: false,
-//       },
-//     };
-//   }
-//   return {
-//     props: { session },
-//   };
-// }
+
 
 export default Edit;

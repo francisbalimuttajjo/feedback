@@ -9,9 +9,8 @@ import MainComment from "./Comments";
 
 
 function Comments(props) {
- 
-  return (
-    <div className="    flex rounded-md     flex-col bg-white     w-11/12  m-auto mt-4 px-2      sm:ml-16   ">
+   return (
+    <div className="  flex rounded-md  flex-col bg-white   w-11/12  m-auto mt-4 px-2   sm:ml-16   ">
       <div>
         <h5 className="m-5 font-bold">
           {props.comments.length}{" "}
@@ -50,7 +49,7 @@ function Feedback(props) {
             <ArrowBackIosNewIcon fontSize="small" sx={{ fontSize: "14px" }} />
           </IconButton>
 
-          <h6 className="mt-1  ">Go back</h6>
+          <span className="mt-1  ">Go back</span>
         </div>
         <div className="right-3 absolute  sm:mr-20 md:mr-64">
           <button

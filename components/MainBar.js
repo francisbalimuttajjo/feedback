@@ -40,8 +40,7 @@ function MainBar(props) {
   return (
     <div className="w-full text-white  ">
       <div
-        className="mainbar-subContainer
-      "
+        className="mainbar-subContainer z-10 "
       >
         <div className="hidden sm:block mt-2">
           <AccountBalanceIcon sx={{ marginTop: "15px", marginLeft: "10px" }} />
