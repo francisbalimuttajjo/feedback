@@ -2,6 +2,7 @@ import React from "react";
 import { StyledButton } from "./Elements";
 import { IconButton } from "@mui/material";
 import Link from "next/link";
+import useMediaQuery from "@mui/material/useMediaQuery";
 import Drawer from "@mui/material/Drawer";
 import List from "@mui/material/List";
 import Tooltip from "@mui/material/Tooltip";
@@ -16,15 +17,17 @@ const planned = ["Planned", "In Progress", "Fixed"];
 
 //drawer
 const DrawerComponent = (props) => {
+  const sm = useMediaQuery("(min-width:650px)");
   const session = useSession();
   return (
     <Drawer
       variant="temporary"
       anchor="right"
       open={props.open}
+      sx={{ display: sm ? "none" : "block" }}
       onClose={props.close}
     >
-      <div className="sm:hidden">
+      <div>
         <List sx={{ backgroundColor: "#e6e2da", minHeight: "100vh" }}>
           <IconButton onClick={() => props.close()}>
             <CloseIcon sx={{ margin: "2px", color: "red" }} />
@@ -49,7 +52,7 @@ const DrawerComponent = (props) => {
               className="hover:bg-blue-300 w-3/4 rounded-md ml-7 p-2 font-bold text-white bg-blue-900"
             >
               SignOut
-              <LogoutIcon sx={{ marginLeft: "10px",color:'red' }} />
+              <LogoutIcon sx={{ marginLeft: "10px", color: "red" }} />
             </button>
           )}
         </List>
@@ -97,9 +100,7 @@ function SideBar(props) {
   const [open, setOpen] = React.useState(false);
   const handleClose = () => setOpen(false);
   return (
-    <div
-      className="sidebar-mainContainer "
-    >
+    <div className="sidebar-mainContainer ">
       {open && (
         <div className="sm:hidden">
           <DrawerComponent
@@ -153,8 +154,10 @@ function SideBar(props) {
           </StyledButton>
         ))}
       </div>
-      <div className=" sidebar-roadmap
-     ">
+      <div
+        className=" sidebar-roadmap
+     "
+      >
         <RoadMap no={props.no} />
       </div>
     </div>

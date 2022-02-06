@@ -6,8 +6,8 @@ function HeadComponent(props) {
   return (
     <Head>
       <title>{props.title}</title>
-      <meta name="description" content="budget app" />
-      <link rel="icon" href="/favicon.ico" />
+      <meta name="feedbackappbafra" content="feedback app " />
+      <link rel="icon" href="/emoji.jpg" />
     </Head>
   );
 }
