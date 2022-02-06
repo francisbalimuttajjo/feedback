@@ -11,6 +11,7 @@ function FeedbackComponent(props) {
 
   return (
     <>
+    
     <Head title={suggestion.title}/>
       <Feedback
         upvotes={suggestion.likes.length}
@@ -21,8 +22,7 @@ function FeedbackComponent(props) {
         length={suggestion.comment.length}
         id={router.query.id}
         src={suggestion.image}
-        name={suggestion.name}
-       
+        name={suggestion.name}       
         createDate={suggestion.createdAt}
       />
     </>
@@ -37,6 +37,8 @@ export async function getServerSideProps(req) {
     `https://feedbackbafra.vercel.app/api/suggestions/${req.query.id}`
 
   );
+
+
   
  
   return {
