@@ -1,6 +1,6 @@
 import connect from "../../../db/db";
 import Suggestion from "../../../models/Suggestion";
-import { sendResponse } from "../../utils";
+import { sendResponse } from "../../../utils";
 
 export default async function handler(req, res) {
   connect();
