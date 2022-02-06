@@ -1,32 +1,21 @@
 import connect from "../../../../db/db";
 import Suggestion from "../../../../models/Suggestion";
+import { sendResponse } from "../../../../utils";
 
 export default async function handler(req, res) {
   connect();
   if (req.method === "DELETE") {
     try {
       const data = await Suggestion.deleteOne({ _id: req.query.id });
-      
+
       if (!data) {
-        return res.status(400).json({
-          status: "fail",
-          data: "suggestion not available",
-        });
+        return sendResponse(req, res, 404, "fail", "suggestion not available");
       } else {
-        return res.status(200).json({
-          status: "success",
-          data: "delete successfull",
-        });
+        return sendResponse(req, res, 200, "success", "delete successfull");
       }
     } catch (err) {
-      return res.status(400).json({
-        status: "fail",
-        data: err.message,
-      });
+      return sendResponse(req, res, 400, "fail", err.message);
     }
   }
-  return res.status(400).json({
-    status: "fail",
-    data: "invalid method",
-  });
+  return sendResponse(req, res, 400, "fail", "invalid method");
 }

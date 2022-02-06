@@ -1,5 +1,6 @@
 import connect from "../../../db/db";
 import Comment from "../../../models/Comment";
+import { sendResponse } from "../../../utils";
 
 export default async function handler(req, res) {
   connect();
@@ -14,20 +15,10 @@ export default async function handler(req, res) {
         image,
         name,
       });
-
-      return res.status(200).json({
-        status: "success",
-        data,
-      });
+      return sendResponse(req, res, 201, "success", data);
     } catch (err) {
-      return res.status(400).json({
-        status: "fail",
-        data: err.message,
-      });
+      return sendResponse(req, res, 400, "fail", err.message);
     }
   }
-  return res.status(400).json({
-    status: "fail",
-    data: "invalid method",
-  });
+  return sendResponse(req, res, 400, "fail", "invalid method");
 }

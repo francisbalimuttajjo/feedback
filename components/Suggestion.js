@@ -81,6 +81,7 @@ function Suggestion(props) {
                 title="click to upvote"
               >
                 <IconButton
+                
                 sx={{marginTop:'-10px', marginLeft:'-15px'}}
                  disabled={loading} onClick={handleLike}>
                   <Image

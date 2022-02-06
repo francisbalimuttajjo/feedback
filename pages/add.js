@@ -37,7 +37,7 @@ const Add = () => {
         image: session.data.user.image,
         email: session.data.user.email,
       });
-
+     
       if (res.data.status === "success") {
         setLoading(false);
         setTitle("");
