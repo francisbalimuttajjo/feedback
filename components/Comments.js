@@ -32,6 +32,9 @@ const Comments = (props) => {
         return
         
       }
+    }).catch(err=>{
+      setLoading(false)
+      setError('something went wrong try again')
     })
   }
   return (

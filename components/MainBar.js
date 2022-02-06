@@ -12,7 +12,7 @@ import NotFound from "./NotFound"
 function MainBar(props) {
   const [value, setValue] = React.useState(sortingCategories[2]);
   const session = useSession();
-  const router = useRouter();
+   const router = useRouter();
 
   const handleChange = (e) => {
     setValue(e.target.value);
@@ -74,7 +74,7 @@ function MainBar(props) {
             </FormControl>
           </div>
         </div>
-        {session.data && (
+        {session.status==='authenticated' && (
           <button
             onClick={() => router.replace("/add")}
             className=" bg-fuchsia-500 h-8 px-1 mt-3 hover:bg-blue-500 rounded-md sm:mt-6 "
@@ -82,7 +82,7 @@ function MainBar(props) {
             + add Feedback
           </button>
         )}
-        {!session.data && (
+        {session.status==='unauthenticated' && (
           <button
             onClick={() =>
               signIn("google", {
