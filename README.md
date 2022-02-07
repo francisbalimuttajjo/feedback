@@ -35,5 +35,7 @@ The project has three Mongodb collections (feedback,comments and likes),comments
     <img src="![feedback](https://user-images.githubusercontent.com/63359032/152752525-21abd567-f80a-451c-ae79-ba08c8e62fc0.jpg)" width="400px"</img> 
 </div> -->
 ![feedback](https://user-images.githubusercontent.com/63359032/152753309-a5997033-a323-4493-ac55-8353271a39d5.JPG)
+![feedback](https://user-images.githubusercontent.com/63359032/152753309-a5997033-a323-4493-ac55-8353271a39d5.JPG)
+
 
 
