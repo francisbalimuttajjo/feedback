@@ -23,7 +23,7 @@ Users can view,create,delete,comment  and upvote a  feedback/reviews/suggestions
 
 <h1>Getting Started</h1>
 Locally, u just need to clone the project to your local machine and run npm install to install all the dependencies; Then run npm run dev to start your development environment,
-however, u need to get Google credentials for authentication and for that reason am recommending you test the app live at <em> https://feedbackbafra.vercel.app </em>
+however, u need to get Google credentials for authentication and also get a mongodb database connection string; and for those reasons am recommending you test the app live at <em> https://feedbackbafra.vercel.app </em>
 
 
 <h1>Data Flow</h1>
