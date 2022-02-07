@@ -15,7 +15,10 @@ function Suggestion(props) {
   const [error, setError] = React.useState(null);
     const [message, setMessage] = React.useState(null);
   const handleLike = () => {
-   
+    
+
+
+    
     axios
       .post("/api/likes", {
         user: session.data.user.email,
