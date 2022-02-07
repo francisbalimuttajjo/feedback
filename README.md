@@ -31,6 +31,7 @@ however, u need to get Google credentials for authentication and for that reason
 The project has three Mongodb collections (feedback,comments and likes),comments referencing to the parent(feedback) and likes referencing to the parent(comments). Feedback and Comments are populated with comments and likes respectively using the mongoose virtual properties at query time. Parent referencing was employed in this project for the data modelling.
 
 
-<div align="center">
+<!-- <div align="center">
     <img src="![feedback](https://user-images.githubusercontent.com/63359032/152752525-21abd567-f80a-451c-ae79-ba08c8e62fc0.jpg)" width="400px"</img> 
-</div>
+</div> -->
+![feedback](https://user-images.githubusercontent.com/63359032/152752525-21abd567-f80a-451c-ae79-ba08c8e62fc0.jpg)
