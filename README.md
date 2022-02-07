@@ -32,5 +32,5 @@ The project has three Mongodb collections (feedback,comments and likes),comments
 
 
 <div align="center">
-    <img src="![Alt Text](https://github.com/fbalimuttajjo/feedback/tailwind/public/feedback.jpg)" width="400px"</img> 
+    <img src="![feedback](https://user-images.githubusercontent.com/63359032/152752525-21abd567-f80a-451c-ae79-ba08c8e62fc0.jpg)" width="400px"</img> 
 </div>
