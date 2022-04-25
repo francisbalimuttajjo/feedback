@@ -1,61 +1,44 @@
-import Head from "../components/Head";
-import React from "react";
-import Side from "../components/SideBar";
-import Main from "../components/MainBar";
-import axios from "axios";
+import axios from 'axios'
+import Header from "../components/Header";
+import SideBar from "../components/SideBar";
+import Head from "../components/components/Head";
+import Feedback from "../components/components/Feedback";
+import useFns from '../others/useHomePageFns'
 
 export default function Home(props) {
-  const [initialData, setData] = React.useState(props.data.data);
-  const [data, dispatch] = React.useReducer(reducer, props.data.data);
-  const planned = props.data.data.filter((el) => el.status === "planned");
-  const progress = props.data.data.filter((el) => el.status === "progress");
-  const fixed = props.data.data.filter((el) => el.status === "fixed");
+ 
 
-  const numbers = [
-    { number: planned.length, index: 0 },
-    { number: progress.length, index: 1 },
-    { number: fixed.length, index: 2 },
-  ];
-  function reducer(data, action) {
-    const newData = [...data];
-    switch (action.type) {
-      case "ui":
-        return newData.filter((el) => el.category == "ui");
-        break;
-      case "reset":
-        return initialData;
-        break;
-      case "ux":
-        return data.filter((el) => el.category == "ux");
-        break;
-      case "bug":
-        return data.filter((el) => el.category == "bug");
-        break;
-      case "feature":
-        return data.filter((el) => el.category == "feature");
-        break;
-      case "enhancement":
-        return data.filter((el) => el.category == "enhancement");
-        break;
-    }
-    return data;
-  }
-
-  const handleFilter = (val) => {
-    dispatch({ type: "reset" });
-    dispatch({ type: val });
-  };
+  const {
+    handleChange,
+    handleFilter,
+    value,
+    data,
+    roadmap,
+    categories,
+    
+  } = useFns(props.data.data);
   return (
-    <div className="md:flex md:w-4/5 md:mx-auto">
-      <Head title="home" />
-      <Side handleFilter={handleFilter} number={numbers} />
-      <Main data={data} />
+    <div className="md:flex w-full  md:w-9/12 sm:mx-auto ">
+      <Head title='Feedback Application'/>
+      <SideBar data={roadmap} handleFilter={handleFilter} />
+      <div className="sm:w-11/12 md:w-9/12 sm:mx-auto md:ml-12">
+        <Header
+          value={value}
+          data={data}
+          handleChange={handleChange}
+          categories={categories}
+        />
+        <div className="py-4">
+          {data.map((el) => (
+            <Feedback key={el._id} feedback={el} homepage />
+          ))}
+        </div>
+      </div>
     </div>
   );
 }
 
 export async function getServerSideProps(context) {
-  //const res = await axios.get("http://localhost:3000/api/getSuggestions");
   const res = await axios.get(
     "https://feedbackbafra.vercel.app/api/getSuggestions"
   );

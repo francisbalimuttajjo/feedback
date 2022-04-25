@@ -1,6 +1,6 @@
 import React from "react";
 import axios from "axios";
-import Notification from "./Notification"
+import Notification from "./Notification";
 import { useSession } from "next-auth/react";
 
 function AddComment(props) {
@@ -10,7 +10,6 @@ function AddComment(props) {
   const [loading, setLoading] = React.useState(false);
   const session = useSession();
 
-  
   function addComment(suggestion) {
     if (!text.length) {
       setError("no empty fields");
@@ -28,7 +27,7 @@ function AddComment(props) {
       .then((res) => {
         if (res.data.status === "success") {
           setLoading(false);
-          setMessage('success!')
+          setMessage("success!");
           window.location.reload();
         }
         return;
@@ -36,10 +35,10 @@ function AddComment(props) {
   }
   return (
     <>
-    {error && <Notification severity='error' message={error} />}
-    {message && <Notification severity='success' message={message} />}
+      {error && <Notification severity="error" message={error} />}
+      {message && <Notification severity="success" message={message} />}
       {session.data && (
-        <div className="flex  sm:ml-16 flex-col p-10 bg-white rounded-md mt-4 w-11/12 mx-auto">
+        <div className="flex  mb-5 flex-col p-10 bg-white rounded-md mt-4  w-11/12 md:w-full mx-auto">
           <h4 className="mb-2 font-semibold">Add Comment</h4>
           <div>
             <textarea
@@ -56,10 +55,10 @@ function AddComment(props) {
             </p>
 
             <button
-            disabled={loading}
+              disabled={loading}
               className=" bg-blue-900 text-white
              h-8 px-2 mt-2 hover:bg-blue-400 rounded-md  "
-              onClick={() => addComment(props.id)}
+              onClick={() => addComment(props.feedback._id)}
             >
               {!loading && "Comment"}
               {loading && "commenting .."}

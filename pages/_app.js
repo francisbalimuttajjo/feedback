@@ -1,8 +1,8 @@
 import "../styles/globals.css";
 import React from "react";
-import Nprogress from 'nprogress'
+import Nprogress from "nprogress";
 import Head from "next/head";
-import Router from "next/router"
+import Router from "next/router";
 import { SessionProvider } from "next-auth/react";
 
 //disabling the spinner
@@ -11,26 +11,24 @@ Nprogress.configure({ showSpinner: false });
 //
 function MyApp({ Component, pageProps }) {
   const [loading, setLoading] = React.useState(false);
-//starting loader
+  //starting loader
   Router.events.on("routeChangeStart", () => {
-    Nprogress.start()
+    Nprogress.start();
     setLoading(true);
-    
   });
   //ending loader
   Router.events.on("routeChangeComplete", () => {
     setLoading(false);
-    Nprogress.done()
-   
+    Nprogress.done();
   });
   //in case of an error
   Router.events.on("routeChangeError", () => {
     setLoading(false);
-  
   });
 
   return (
     <>
+      
       <Head>
         <link
           rel="stylesheet"
@@ -40,10 +38,11 @@ function MyApp({ Component, pageProps }) {
           referrerpolicy="no-referrer"
         />
       </Head>
-    
+
       <SessionProvider session={pageProps.session}>
         <Component {...pageProps} />
       </SessionProvider>
+    
     </>
   );
 }

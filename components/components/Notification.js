@@ -18,11 +18,18 @@ export default function CustomizedSnackbars(props) {
   };
 
   return (
-    <div className='w-6/12'>
-      <Snackbar open={open} autoHideDuration={6000} onClose={handleClose}
-      anchorOrigin={{ vertical:"top", horizontal:'center' }}
+    <div className="w-6/12">
+      <Snackbar
+        open={open}
+        autoHideDuration={6000}
+        onClose={handleClose}
+        anchorOrigin={{ vertical: "top", horizontal: "center" }}
       >
-        <Alert onClose={handleClose} severity={props.severity} sx={{ width: "100%" }}>
+        <Alert
+          onClose={handleClose}
+          severity={props.severity}
+          sx={{ width: "100%" }}
+        >
           {props.message}
         </Alert>
       </Snackbar>

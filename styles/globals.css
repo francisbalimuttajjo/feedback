@@ -12,8 +12,8 @@
   @apply hidden sm:block flex bg-gray-200 h-12 w-12 sm:w-10 sm:p-1
     flex-col m-2 -ml-4 rounded-md p-2 justify-center;
 }
-.suggestion-container {
-  @apply bg-white  mx-3 md:ml-20    
+.feedback-container {
+  @apply bg-white  mx-3 md:ml-20 
     rounded-lg text-black mt-4 py-3 sm:pl-6 sm:py-3   sm:ml-16;
 }
 .suggestion-heading {
