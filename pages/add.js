@@ -1,5 +1,5 @@
-import Head from "../components/components/Head";
-import Form from "../components/components/Form";
+import Head from "../components/reusableComponents/Head";
+import Form from "../components/reusableComponents/Form";
 import { getSession } from "next-auth/react";
 
 const NewFeedback = () => {

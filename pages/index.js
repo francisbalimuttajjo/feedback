@@ -1,8 +1,8 @@
 import axios from "axios";
 import Header from "../components/Header";
 import SideBar from "../components/SideBar";
-import Head from "../components/components/Head";
-import Feedback from "../components/components/Feedback";
+import Head from "../components/reusableComponents/Head";
+import Feedback from "../components/reusableComponents/Feedback";
 import useFns from "../others/useHomePageFns";
 
 export default function Home(props) {

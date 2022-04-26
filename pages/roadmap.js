@@ -1,10 +1,10 @@
 import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
 import { IconButton } from "@mui/material";
 import { useRouter } from "next/router";
-import Head from "../components/components/Head";
+import Head from "../components/reusableComponents/Head";
 import { useState } from "react";
 import axios from "axios";
-import Card from "../components/components/Card";
+import Card from "../components/reusableComponents/Card";
 
 export default function RoadMap(props) {
   const router = useRouter();

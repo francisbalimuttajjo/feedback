@@ -1,9 +1,9 @@
 import { useRouter } from "next/router";
 import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
 import { IconButton } from "@mui/material";
-import Feedback from "./components/Feedback";
-import Comment from "./components/Comment";
-import AddComment from "./components/AddComment";
+import Feedback from "./reusableComponents/Feedback";
+import Comment from "./reusableComponents/Comment";
+import AddComment from "./reusableComponents/AddComment";
 
 const Details = (props) => {
   const router = useRouter();

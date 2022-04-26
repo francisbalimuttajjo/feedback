@@ -5,8 +5,8 @@ import Tooltip from "@mui/material/Tooltip";
 import { signOut, useSession } from "next-auth/react";
 import MenuIcon from "@mui/icons-material/Menu";
 import LogoutIcon from "@mui/icons-material/Logout";
-import RoadMap from "./components/RoadMap";
-import DrawerComponent from "./components/DrawerComponent";
+import RoadMap from "./reusableComponents/RoadMap";
+import DrawerComponent from "./reusableComponents/DrawerComponent";
 import { categories } from "../data";
 
 export default function SideBar(props) {

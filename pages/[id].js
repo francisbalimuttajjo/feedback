@@ -1,6 +1,6 @@
 import React from "react";
-import Details from "../components/FeedbackDetails";
-import Head from "../components/components/Head";
+import Details from "../reusableComponents/FeedbackDetails";
+import Head from "../components/reusableComponents/Head";
 import axios from "axios";
 
 function FeedbackComponent(props) {
