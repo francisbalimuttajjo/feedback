@@ -2,8 +2,95 @@
 @tailwind components;
 @tailwind utilities;
 
+.sidebar_subcontainer {
+  @apply hidden overflow-hidden sm:block rounded-lg bg-white w-3/12 h-36 md:py-4 md:h-36 md:w-full md:mt-3;
+}
+
+.sidebar_menubutton {
+  @apply my-auto sm:hidden -right-10 relative md:hidden lg:hidden;
+}
+
+.sidebar_headingContainer {
+  @apply w-full sm:w-1/3 md:w-full bg-gradient-to-r from-violet-500 to-fuchsia-500 text-white flex justify-around sm:h-36 sm:rounded-lg;
+}
+
+.header_container {
+  @apply w-full mx-auto text-white z-10 sticky top-0;
+}
+
+.header_subcontainer {
+  @apply bg-slate-900 flex justify-around w-full h-14 sm:h-20 sm:rounded-md md:mt-12;
+}
+
+.header_add_btn {
+  @apply bg-fuchsia-500 h-8 px-1 mt-3 hover:bg-blue-500 rounded-md sm:mt-6;
+}
+
+.header_login_btn {
+  @apply bg-fuchsia-500 h-8 px-3 mt-3 hover:bg-blue-500 rounded-md sm:mt-6;
+}
+.details_btn {
+  @apply bg-purple-900 text-white    h-8 px-2 mt-2 hover:bg-blue-900 rounded-md;
+}
+.details_comment_container {
+  @apply flex rounded-md flex-col bg-white mx-auto mt-4 w-11/12 md:w-full;
+}
+.form_container {
+  @apply flex flex-col mx-auto w-full pb-10;
+}
+.form_input {
+  @apply mt-3 text-blue-900 w-10/12 px-3 ml-6 bg-gray-200 h-16 rounded-sm;
+}
+.form_textarea {
+  @apply w-10/12 mt-4 text-blue-900 py-7 px-5 bg-gray-200 ml-6 h-32 resize-none rounded-sm;
+}
+.form_submitbtn {
+  @apply w-full font-bold hover:bg-blue-500 text-white rounded-md my-2 py-2 bg-fuchsia-700;
+}
+.feedback_container {
+  @apply bg-white  mx-auto  rounded-lg text-black mt-4 py-3 sm:pl-6 sm:py-3 w-11/12 md:w-full;
+}
+.comment_textarea {
+  @apply bg-gray-200 h-20 ml-12 mt-3 p-2 rounded-md  mb-2 resize-none  w-9/12;
+}
+.comment_cancelbtn {
+  @apply bg-purple-600 hover:bg-blue-500 mb-2 mr-10 p-2 rounded-md text-white h-10;
+}
+.comment_submitbtn {
+  @apply bg-blue-600 hover:bg-purple-500  mb-2 mr-10 p-2 rounded-md text-white h-10;
+}
+.card_container {
+  @apply bg-white w-10/12 mx-auto rounded-md  mb-3 pb-2 px-2 flex flex-col font-bold  border-t-4;
+}
+.card_category {
+  @apply bg-gray-200 text-violet-900 mx-4 font-semibold w-fit p-2 h-fit my-2 rounded-md opacity-70;
+}
+.card_like_container {
+  @apply flex bg-gray-200 my-2 h-8 w-12 ml-4 opacity-70 rounded-md p-2 justify-center;
+}
+.container_card {
+  @apply w-full sm:w-7/12 sm:mx-auto mb-2;
+}
+.container_title {
+  @apply font-bold opacity-80 sm:ml-12  ml-6 pt-4;
+}
+.drawer_signout_btn {
+  @apply hover:bg-blue-700 w-3/4 rounded-md ml-7 p-2 font-bold text-white bg-blue-900;
+}
+.container_description {
+  @apply font-semibold text-sm sm:ml-12 mb-4 opacity-50 ml-6;
+}
+.add_container{
+  @apply flex  mb-5 flex-col p-10 bg-white rounded-md mt-4  w-11/12 md:w-full mx-auto
+}
+.add_textarea{
+  @apply bg-gray-200 mt-3 p-2 rounded-md ml-8 h-20 resize-none w-10/12
+}
 .suggestionCategory {
   @apply bg-gray-200 text-violet-900 font-semibold sm:ml-24 px-2 py-2 h-10 mt-2 mr-4  rounded-md opacity-70;
+}
+.add_btn{
+  @apply bg-blue-900 text-white h-8 px-2 mt-2 hover:bg-blue-400 rounded-md
 }
 .suggestionUpvote {
   @apply flex bg-gray-200 h-10 w-12 sm:hidden   flex-col m-2   rounded-md p-2 justify-center;
@@ -16,33 +103,35 @@
   @apply bg-white  mx-3 md:ml-20 
     rounded-lg text-black mt-4 py-3 sm:pl-6 sm:py-3   sm:ml-16;
 }
+.sidebar_container {
+  @apply w-full mx-auto sm:w-11/12 md:w-1/4 sm:flex sm:flex-row sm:mb-4 sm:mt-4 md:flex-col md:mt-32 sticky md:h-screen top-0;
+}
 .suggestion-heading {
   @apply ml-2  sm:ml-14   grow  font-semibold sm:font-bold opacity-90 capitalize;
 }
-.sidebar-subContainer {
-  @apply w-full h-16 bg-gradient-to-r from-violet-500 to-fuchsia-500 text-white flex justify-around    sm:w-3/12 sm:h-32 sm:rounded-lg md:w-full;
-}
-.sidebar-mainContainer {
-  @apply w-full     sm:flex sm:flex-row sm:ml-16 sm:mb-4 sm:mt-4 md:flex-col md:w-4/12 md:mt-32 md:sticky md:h-screen md:top-2;
-}
-.sidebar-roadmap {
-  @apply hidden sm:block md:block rounded-lg  bg-white  ml-6 w-3/12  h-32 md:py-4 md:h-36  md:w-full md:ml-0 md:mt-3;
-}
-.sidebar-btnContainer {
-  @apply hidden  overflow-hidden sm:block  md:block rounded-lg ml-6    bg-white w-3/12  h-32 md:w-full md:ml-0 md:mt-3 md:overflow-hidden;
-}
-.mainbar-subContainer {
+
+/* .mainbar-subContainer {
   @apply bg-slate-900 sticky top-0    flex justify-around w-full h-14 sm:h-20 sm:rounded-md sm:w-11/12 sm:ml-16 md:mt-12;
+} */
+
+.add-heading {
+  @apply flex justify-center  -mt-7 ml-8  bg-gradient-to-r text-white from-violet-500 to-fuchsia-500 rounded-full h-10 w-10;
 }
-.add-heading{
-    @apply  flex justify-center  -mt-7 ml-8  bg-gradient-to-r text-white from-violet-500 to-fuchsia-500 rounded-full h-10 w-10
+.btn {
+  @apply w-10/12 ml-6 mb-4 rounded-md  hover:bg-blue-500 text-white font-bold my-2 py-2;
 }
-.btn{
-    @apply w-10/12 ml-6 mb-4 rounded-md  hover:bg-blue-500 text-white font-bold my-2 py-2
+.btn-roadMap {
+  @apply pb-5  w-1/4 hover:border-purple-500  hover:border-b-4 active:border-b-4 active:border-purple-500  hover:opacity-90   opacity-50  hover:cursor-pointer font-bold;
 }
-.btn-roadMap{
-    @apply pb-5  w-1/4 hover:border-purple-500  hover:border-b-4 active:border-b-4 active:border-purple-500  hover:opacity-90   opacity-50  hover:cursor-pointer font-bold
+.editIcon-container {
+  @apply flex justify-center  -mt-7 ml-8  bg-gradient-to-r text-white from-violet-500 to-fuchsia-500 rounded-full h-10 w-10;
 }
-.editIcon-container{
-  @apply flex justify-center  -mt-7 ml-8  bg-gradient-to-r text-white from-violet-500 to-fuchsia-500 rounded-full h-10 w-10
+.roadmap_container {
+  @apply text-white bg-slate-700 py-3 flex sm:rounded-md sm:mt-8 sm:mx-auto sm:w-7/12;
+}
+.roadmap_add_btn {
+  @apply bg-fuchsia-500 font-bold h-8 mr-2 px-1 mt-2 hover:bg-blue-500 rounded-md sm:mt-6;
+}
+.roadmap_nav_bar {
+  @apply mr-2 border-b-2 border-purple-400 p-4 h-16 sm:w-6/12 sm:mx-auto;
 }

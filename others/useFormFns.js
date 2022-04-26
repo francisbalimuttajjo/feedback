@@ -2,12 +2,13 @@ import React from "react";
 import { useRouter } from "next/router";
 import { useSession } from "next-auth/react";
 import axios from "axios";
-const UseFns = (initialValues,editing) => {
+
+const UseFns = (props) => {
   const router = useRouter();
   const session = useSession();
-  const [category, setCategory] = React.useState(initialValues.category);
-  const [title, setTitle] = React.useState(initialValues.title);
-  const [text, setText] = React.useState(initialValues.suggestion);
+  const [category, setCategory] = React.useState(props.initialValues.category);
+  const [title, setTitle] = React.useState(props.initialValues.title);
+  const [text, setText] = React.useState(props.initialValues.suggestion);
   const [message, setMessage] = React.useState(null);
   const [error, setError] = React.useState(null);
   const [loading, setLoading] = React.useState(false);
@@ -20,7 +21,7 @@ const UseFns = (initialValues,editing) => {
       .delete(`/api/suggestions/delete/${router.query.id}`)
       .then((res) => {
         setDeleting(false);
-        setMessage("operation successfull");
+        setMessage("Operation successfull");
         router.replace("/");
       })
       .catch((err) => {
@@ -35,7 +36,7 @@ const UseFns = (initialValues,editing) => {
       return;
     }
     setLoading(true);
-    if (editing) {
+    if (props.editing) {
       axios
         .patch(`/api/suggestions/edit/${router.query.id}`, {
           title,
@@ -45,7 +46,7 @@ const UseFns = (initialValues,editing) => {
         .then((res) => {
           if (res.data.status === "success") {
             setLoading(false);
-            setMessage("update successfull");
+            setMessage("Update Successfull");
             setTimeout(() => router.replace(`/${router.query.id}`), 3000);
           }
           return;
@@ -68,33 +69,46 @@ const UseFns = (initialValues,editing) => {
           email: session.data.user.email,
         })
         .then((res) => {
+          console.log("res", res);
           setLoading(false);
-          setTitle("");
-          setText("");
-          setMessage("feedback added");
-          setTimeout(() => router.replace("/"), 3000);
-          return;
+          if (res.data.status === "success") {
+            setTitle("");
+            setText("");
+            setMessage("Feedback added");
+            setTimeout(() => router.replace("/"), 3000);
+            return;
+          }
         })
         .catch((err) => {
           setLoading(false);
           setError("Try again Later");
         });
     }
-    return {
-      title,
-      setTitle,
-      setCategory,
-      setText,
-      text,
-      category,
-      message,
-      error,
-      loading,
-      deleting,
-      selectRef,
-      deleteHandler,
-      submitHandler,
-    };
+  };
+
+  const styles = {
+    back_button: { fontSize: "12px", color: "blue", marginRight: "15px" },
+    edit_icon: { marginTop: 1 },
+    select: {
+      minWidth: "100%",
+      marginTop: "12px",
+    },
+  };
+  return {
+    title,
+    setTitle,
+    setCategory,
+    setText,
+    text,
+    category,
+    message,
+    error,
+    loading,
+    deleting,
+    selectRef,
+    deleteHandler,
+    submitHandler,
+    styles,
   };
 };
 

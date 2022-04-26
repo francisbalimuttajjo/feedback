@@ -28,7 +28,6 @@ function MyApp({ Component, pageProps }) {
 
   return (
     <>
-      
       <Head>
         <link
           rel="stylesheet"
@@ -42,7 +41,6 @@ function MyApp({ Component, pageProps }) {
       <SessionProvider session={pageProps.session}>
         <Component {...pageProps} />
       </SessionProvider>
-    
     </>
   );
 }

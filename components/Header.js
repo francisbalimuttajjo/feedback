@@ -9,6 +9,7 @@ import AccountBalanceIcon from "@mui/icons-material/AccountBalance";
 const Header = (props) => {
   const session = useSession();
   const router = useRouter();
+  
   const styles = {
     google_icon: { fontSize: "16px", color: "red", marginRight: "6px" },
     select: { color: "white", fontSize: "15px" },
@@ -17,8 +18,8 @@ const Header = (props) => {
   };
 
   return (
-    <div className="w-full mx-auto   text-white z-10  sticky top-0   ">
-      <div className="bg-slate-900     flex justify-around w-full h-14 sm:h-20 sm:rounded-md   md:mt-12 ">
+    <div className="header_container ">
+      <div className="header_subcontainer ">
         <div className="hidden sm:block mt-2">
           <AccountBalanceIcon sx={styles.icon} />
           <h5 className="ml-5 -mt-6  sm:ml-12">
@@ -49,7 +50,7 @@ const Header = (props) => {
         {session.status === "authenticated" && (
           <button
             onClick={() => router.replace("/add")}
-            className=" bg-fuchsia-500 h-8 px-1 mt-3 hover:bg-blue-500 rounded-md sm:mt-6 "
+            className=" header_add_btn "
           >
             + add Feedback
           </button>
@@ -61,7 +62,7 @@ const Header = (props) => {
                 callbackUrl: "https://feedbackbafra.vercel.app/",
               })
             }
-            className=" bg-fuchsia-500 h-8 px-3 mt-3 hover:bg-blue-500 rounded-md sm:mt-6 "
+            className=" header_login_btn"
           >
             <GoogleIcon sx={styles.google_icon} />
             login

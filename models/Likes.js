@@ -21,20 +21,9 @@ const likesModel = new mongoose.Schema(
   },
   {
     toJSON: { virtuals: true },
-    toOject: { virtuals: true },
+    toObject: { virtuals: true },
   }
 );
-// commentModel.pre(/^find/, function () {
-//   this.populate({
-//     path: "replies",
-//     model: Reply,
-//   });
-// });
 
-// commentModel.virtual("replies", {
-//   ref: "Reply",
-//   foreignField: "comment",
-//   localField: "_id",
-// });
 export default mongoose.models["Likes"] ||
   mongoose.model("Likes", likesModel);

@@ -1,48 +1,24 @@
 import React from "react";
 import CommentReply from "./CommentReply";
 import { Avatar, Divider } from "@mui/material";
-import { useSession } from "next-auth/react";
 import Notification from "./Notification";
-import axios from "axios";
+import useFns from "../../others/useComment";
 
 const Comments = (props) => {
-  const [reply, setReply] = React.useState(false);
-  const [error, setError] = React.useState(null);
-  const [message, setMessage] = React.useState(null);
-  const [loading, setLoading] = React.useState(false);
-  const [text, setText] = React.useState("");
-  const session = useSession();
-  const name = props.comment.name.split(" ");
-  
+  const {
+    reply,
+    error,
+    message,
+    loading,
+    text,
+    name,
+    handleReply,
+    closeReply,
+    openReply,
+    handleText,
+    session,
+  } = useFns(props);
 
-  const handleReply = () => {
-    if (!text.length) {
-      setError("please add reply");
-      return;
-    }
-    setLoading(true);
-    axios
-      .post("/api/replies", {
-        name: session.data.user.name,
-        email: session.data.user.email,
-        image: session.data.user.image,
-        reply: text,
-        comment: props.comment._id,
-      })
-      .then((res) => {
-        if (res.data.status) {
-          setLoading(false);
-          setText("");
-          setMessage("reply saved");
-          window.location.reload();
-          return;
-        }
-      })
-      .catch((err) => {
-        setLoading(false);
-        setError("something went wrong try again");
-      });
-  };
   return (
     <div className="flex flex-col">
       {error && <Notification severity="error" message={error} />}
@@ -65,7 +41,7 @@ const Comments = (props) => {
             <div className="text-blue-700  right-12 absolute sm:mr-24 md:mr-80     ">
               {session.data && (
                 <button
-                  onClick={() => setReply(true)}
+                  onClick={openReply}
                   className="hover:font-bold hover:underline"
                 >
                   Reply
@@ -88,23 +64,23 @@ const Comments = (props) => {
       {reply && (
         <div>
           <textarea
-            className="bg-gray-200 h-20 ml-12 mt-3 p-2 rounded-md  mb-2 resize-none  w-9/12"
+            className="comment_textarea"
             placeholder="enter reply"
             maxLength="250"
             value={text}
-            onChange={(e) => setText(e.target.value)}
+            onChange={handleText}
           ></textarea>
           <div className="flex justify-center ml-10">
             <button
-              className="bg-purple-600 hover:bg-blue-500  mb-2 mr-10 p-2 rounded-md text-white h-10"
-              onClick={() => setReply(false)}
+              className="comment_cancelbtn"
+              onClick={closeReply}
             >
-              cancel
+              Cancel
             </button>
             <button
               onClick={handleReply}
               disabled={loading}
-              className="bg-blue-600 hover:bg-purple-500  mb-2 mr-10 p-2 rounded-md text-white h-10"
+              className="comment_submitbtn"
             >
               {!loading && "Post Reply"}
               {loading && "Replying...."}

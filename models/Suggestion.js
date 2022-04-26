@@ -28,15 +28,14 @@ const suggestionModel = new mongoose.Schema(
       type: String,
       required: [true, "enter suggestion"],
     },
-   
+
     createdAt: {
       type: String,
-      
     },
   },
   {
     toJSON: { virtuals: true },
-    toOject: { virtuals: true },
+    toObject: { virtuals: true },
   }
 );
 suggestionModel.virtual("comment", {

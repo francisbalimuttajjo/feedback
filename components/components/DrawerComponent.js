@@ -10,18 +10,26 @@ import RoadMap from "./RoadMap";
 const DrawerComponent = (props) => {
   const sm = useMediaQuery("(min-width:650px)");
   const session = useSession();
+  
+  const styles = {
+    drawer: { display: sm ? "none" : "block" },
+    list_container: { backgroundColor: "#e6e2da", minHeight: "100vh" },
+    close_icon: { margin: "2px", color: "red" },
+    logout_icon: { marginLeft: "10px", color: "red" },
+  };
+
   return (
     <Drawer
       variant="temporary"
       anchor="right"
       open={props.open}
-      sx={{ display: sm ? "none" : "block" }}
+      sx={styles.drawer}
       onClose={props.close}
     >
       <div>
-        <List sx={{ backgroundColor: "#e6e2da", minHeight: "100vh" }}>
+        <List sx={styles.list_container}>
           <IconButton onClick={() => props.close()}>
-            <CloseIcon sx={{ margin: "2px", color: "red" }} />
+            <CloseIcon sx={styles.close_icon} />
           </IconButton>
           <div className="w-52 mx-5 p-4 rounded-md my-5 bg-white">
             {props.categories.map((item) => (
@@ -37,12 +45,9 @@ const DrawerComponent = (props) => {
             <RoadMap data={props.data} />
           </div>
           {session.data && (
-            <button
-              onClick={() => signOut()}
-              className="hover:bg-blue-300 w-3/4 rounded-md ml-7 p-2 font-bold text-white bg-blue-900"
-            >
+            <button onClick={() => signOut()} className="drawer_signout_btn">
               SignOut
-              <LogoutIcon sx={{ marginLeft: "10px", color: "red" }} />
+              <LogoutIcon sx={styles.logout_icon} />
             </button>
           )}
         </List>

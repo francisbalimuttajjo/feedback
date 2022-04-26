@@ -16,7 +16,7 @@ export default function RoadMap(props) {
   return (
     <div>
       <Head title="roadmap" />
-      <div className="text-white bg-slate-700 py-3 flex sm:rounded-md sm:mt-8  sm:mx-auto sm:w-7/12">
+      <div className="roadmap_container">
         <div className="flex grow flex-col ">
           <div className="flex">
             <IconButton onClick={() => router.back()}>
@@ -31,30 +31,20 @@ export default function RoadMap(props) {
 
         <button
           onClick={() => router.replace("/add")}
-          className=" bg-fuchsia-500 font-bold h-8 mr-2 px-1 mt-2 hover:bg-blue-500 rounded-md sm:mt-6 "
+          className=" roadmap_add_btn "
         >
           + add Feedback
         </button>
       </div>
-      <nav className="mr-2 border-b-2 border-purple-400 p-4 h-16 sm:w-6/12 sm:mx-auto ">
+      <nav className="roadmap_nav_bar ">
         <ul className="flex justify-between">
-          <li
-            className="
-               pb-5  w-1/4 hover:border-purple-500  hover:border-b-4 active:border-b-6 active:border-purple-500  hover:opacity-90   opacity-50  hover:cursor-pointer font-bold"
-            onClick={() => setActive("Planned")}
-          >
+          <li className="btn-roadMap " onClick={() => setActive("Planned")}>
             Planned({planned.length})
           </li>
-          <li
-            className="btn-roadMap"
-            onClick={() => setActive("Progress")}
-          >
+          <li className="btn-roadMap" onClick={() => setActive("Progress")}>
             Progress({progress.length})
           </li>
-          <li
-            className="btn-roadMap"
-            onClick={() => setActive("Live")}
-          >
+          <li className="btn-roadMap" onClick={() => setActive("Live")}>
             Live({fixed.length})
           </li>
         </ul>
@@ -86,7 +76,6 @@ export default function RoadMap(props) {
 }
 
 export async function getServerSideProps(context) {
-
   const res = await axios.get(
     "https://feedbackbafra.vercel.app/api/getSuggestions"
   );

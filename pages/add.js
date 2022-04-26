@@ -1,12 +1,12 @@
 import Head from "../components/components/Head";
 import Form from "../components/components/Form";
-import {  getSession } from "next-auth/react";
-const initialValues = { category: "", title: "", text: "" };
+import { getSession } from "next-auth/react";
 
 const NewFeedback = () => {
+  const initialValues = { category: "", title: "", text: "" };
   return (
     <div className=" mx-auto w-full sm:w-9/12 md:w-6/12">
-      <Head title="new feedback" />
+      <Head title="New feedback" />
       <Form initialValues={initialValues} />
     </div>
   );
@@ -28,5 +28,3 @@ export async function getServerSideProps(context) {
     props: { session },
   };
 }
-
-// export default Add;

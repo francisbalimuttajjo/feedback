@@ -4,7 +4,6 @@ import Head from "../../components/components/Head";
 import Form from "../../components/components/Form";
 
 const Edit = (props) => {
-
   return (
     <div className=" mx-auto w-full sm:w-9/12 md:w-6/12">
       <Head title="editing" />

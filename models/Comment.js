@@ -9,7 +9,7 @@ const commentModel = new mongoose.Schema(
     },
     email: {
       type: String,
-      //   required: [true, "enter category"],
+     
     },
     image:{
       type: String,
@@ -17,7 +17,7 @@ const commentModel = new mongoose.Schema(
 
     name: {
       type: String,
-      //   required: [true, "enter category"],
+     
     },
     suggestion: {
       type: mongoose.Schema.ObjectId,
@@ -28,7 +28,7 @@ const commentModel = new mongoose.Schema(
   },
   {
     toJSON: { virtuals: true },
-    toOject: { virtuals: true },
+    toObject: { virtuals: true },
   }
 );
 commentModel.pre(/^find/, function () {

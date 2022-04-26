@@ -31,7 +31,7 @@ const replyModel = new mongoose.Schema(
   },
   {
     toJSON: { virtuals: true },
-    toOject: { virtuals: true },
+    toObject: { virtuals: true },
   }
 );
 

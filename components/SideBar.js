@@ -8,14 +8,18 @@ import LogoutIcon from "@mui/icons-material/Logout";
 import RoadMap from "./components/RoadMap";
 import DrawerComponent from "./components/DrawerComponent";
 import { categories } from "../data";
-//
 
 export default function SideBar(props) {
   const session = useSession();
   const [open, setOpen] = React.useState(false);
   const handleClose = () => setOpen(false);
+  const styles = {
+    logout_icon: { marginLeft: "5px", color: "white" },
+    menu: { color: "white" },
+  };
+
   return (
-    <div className="w-full  mx-auto sm:w-11/12 md:w-1/4  sm:flex sm:flex-row   sm:mb-4 sm:mt-4 md:flex-col   md:mt-32 sticky md:h-screen top-0 ">
+    <div className="sidebar_container ">
       {open && (
         <div className="sm:hidden">
           <DrawerComponent
@@ -28,7 +32,7 @@ export default function SideBar(props) {
         </div>
       )}
 
-      <div className="w-full sm:w-1/3 md:w-full  bg-gradient-to-r from-violet-500 to-fuchsia-500 text-white flex justify-around  sm:h-36 sm:rounded-lg  ">
+      <div className="sidebar_headingContainer ">
         <div>
           <div className="hidden  sm:block w-full">
             {session.data && (
@@ -39,7 +43,7 @@ export default function SideBar(props) {
                 title="LogOut"
               >
                 <IconButton onClick={() => signOut()}>
-                  <LogoutIcon sx={{ marginLeft: "5px", color: "white" }} />
+                  <LogoutIcon sx={styles.logout_icon} />
                 </IconButton>
               </Tooltip>
             )}
@@ -48,14 +52,14 @@ export default function SideBar(props) {
           <p className=" font-semibold text-3xl  sm:mt-6 ">Budget App</p>
           <p className=" opacity-70 "> Feedback Forum</p>
         </div>
-        <div className="my-auto sm:hidden -right-10 relative  md:hidden lg:hidden ">
-          <IconButton sx={{ color: "white" }} onClick={() => setOpen(true)}>
+        <div className="sidebar_menubutton ">
+          <IconButton sx={styles.menu} onClick={() => setOpen(true)}>
             <MenuIcon />
           </IconButton>
         </div>
       </div>
 
-      <div className="hidden  overflow-hidden sm:block rounded-lg  bg-white px-2  mx-2 md:mx-0 w-1/3  h-36 py-4 md:h-36  md:w-full  md:mt-3 ">
+      <div className="sidebar_subcontainer px-1 ">
         {categories.map((item) => (
           <Chip
             label={item}
@@ -65,7 +69,7 @@ export default function SideBar(props) {
           />
         ))}
       </div>
-      <div className=" hidden overflow-hidden sm:block  rounded-lg  bg-white   w-3/12  h-36 md:py-4 md:h-36  md:w-full  md:mt-3">
+      <div className="sidebar_subcontainer">
         <RoadMap data={props.data} />
       </div>
     </div>

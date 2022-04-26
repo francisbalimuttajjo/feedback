@@ -2,7 +2,7 @@ import React from "react";
 import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
 import { IconButton, Avatar } from "@mui/material";
 import Notification from "./Notification";
-import useFns from "./useFeedbackFns";
+import useFns from "../../others/useFeedbackFns";
 import CommentIcon from "@mui/icons-material/Comment";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 
@@ -10,8 +10,7 @@ function Feedback(props) {
   const { router, error, message, handleLike } = useFns(props.feedback._id);
   return (
     <div
-      className="bg-white  mx-auto      
-    rounded-lg text-black mt-4 py-3 sm:pl-6 sm:py-3 w-11/12 md:w-full "
+      className="feedback_container "
     >
       {error && <Notification severity="error" message={error} />}
       {message && <Notification severity="success" message={message} />}

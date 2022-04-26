@@ -1,4 +1,4 @@
-import React from 'react'
+import React from "react";
 import { useRouter } from "next/router";
 import axios from "axios";
 import { useSession } from "next-auth/react";
@@ -16,7 +16,7 @@ const Fns = (id) => {
       })
       .then((res) => {
         if (res.data.status === "success") {
-          setMessage("upvote Saved");
+          setMessage("Upvote Saved");
           setTimeout(() => window.location.reload(), 4000);
         }
       })
@@ -24,6 +24,6 @@ const Fns = (id) => {
         setError(err.response.data.data);
       });
   };
-  return { router ,error,message,handleLike};
+  return { router, error, message, handleLike };
 };
-export default Fns
+export default Fns;

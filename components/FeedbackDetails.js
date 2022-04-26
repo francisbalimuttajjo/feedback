@@ -4,6 +4,7 @@ import { IconButton } from "@mui/material";
 import Feedback from "./components/Feedback";
 import Comment from "./components/Comment";
 import AddComment from "./components/AddComment";
+
 const Details = (props) => {
   const router = useRouter();
   return (
@@ -19,16 +20,15 @@ const Details = (props) => {
         <div className="right-3 absolute  sm:mr-20 md:mr-64">
           <button
             onClick={() => router.push(`/edit/${props.feedback._id}`)}
-            className=" bg-purple-900 text-white
-             h-8 px-2 mt-2 hover:bg-blue-900 rounded-md  "
+            className=" details_btn "
           >
             Edit Feedback
           </button>
         </div>
       </div>
-      <div className='w-full md:ml-5'>
+      <div className="w-full md:ml-5">
         <Feedback feedback={props.feedback} />
-        <div className="  flex rounded-md  flex-col bg-white     mx-auto mt-4  w-11/12 md:w-full   ">
+        <div className="  details_comment_container   ">
           <div>
             <h5 className="m-5 font-bold">
               {props.feedback.comment.length}
