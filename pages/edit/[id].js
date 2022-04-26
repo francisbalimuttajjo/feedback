@@ -1,7 +1,7 @@
 import React from "react";
 import axios from "axios";
-import Head from "../../components/components/Head";
-import Form from "../../components/components/Form";
+import Head from "../../components/reusableComponents/Head";
+import Form from "../../components/reusableComponents/Form";
 
 const Edit = (props) => {
   return (

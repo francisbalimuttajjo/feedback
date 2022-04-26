@@ -1,5 +1,5 @@
 import React from "react";
-import Details from "../reusableComponents/FeedbackDetails";
+import Details from "../components/FeedbackDetails";
 import Head from "../components/reusableComponents/Head";
 import axios from "axios";
 
